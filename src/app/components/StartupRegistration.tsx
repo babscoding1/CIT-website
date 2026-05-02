@@ -44,18 +44,21 @@ export default function StartupRegistration() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+  try {
+    const response = await fetch("https://formspree.io/f/mlgzdklz", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
+    if (response.ok) {
+      setIsSubmitted(true);
       setFormData({
         startupName: '',
         sector: '',
@@ -66,8 +69,15 @@ export default function StartupRegistration() {
         stage: '',
         website: '',
       });
-    }, 3000);
-  };
+    } else {
+      alert("Erreur lors de l'envoi. Réessayez.");
+    }
+  } catch (error) {
+    alert("Erreur réseau. Vérifiez votre connexion.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <section id="startup-registration" className="py-20 bg-gradient-to-b from-white to-slate-50">
