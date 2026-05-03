@@ -1,62 +1,59 @@
+import partner1 from '../../assets/partners/partner1.png';
+import partner2 from '../../assets/partners/partner2.png';
+import {images} from '../../assets/images';
+// ...
+// 👉 continue jusqu’à partner19
+
 export default function PartnersSection() {
   const partners = [
-    { name: 'Partner 1', type: 'Premium' },
-    { name: 'Partner 2', type: 'Gold' },
-    { name: 'Partner 3', type: 'Premium' },
-    { name: 'Partner 4', type: 'Silver' },
-    { name: 'Partner 5', type: 'Gold' },
-    { name: 'Partner 6', type: 'Premium' },
-    { name: 'Partner 7', type: 'Silver' },
-    { name: 'Partner 8', type: 'Gold' },
+    { name: 'Partner 1', logo: images.partenaire1 },
+    { name: 'Partner 2', logo: images.partenaire2 },
+    { name: 'Partner 3', logo: images.partenaire3 },
+    { name: 'Partner 4', logo: images.partenaire4 },
+    { name: 'Partner 5', logo: images.partenaire5 },
+    { name: 'Partner 6', logo: images.partenaire6 },
+    { name: 'Partner 7', logo: images.partenaire7 },
+    { name: 'Partner 8', logo: images.partenaire8 },
+    { name: 'Partner 9', logo: images.partenaire9 },
+    { name: 'Partner 10', logo: images.partenaire10 },
+    { name: 'Partner 11', logo: images.partenaire11 },
+    { name: 'Partner 12', logo: images.partenaire12 },
+    { name: 'Partner 13', logo: images.partenaire13 },
+    { name: 'Partner 14', logo: images.partenaire14 },
+    { name: 'Partner 15', logo: images.partenaire15 },
+    { name: 'Partner 16', logo: images.partenaire16 },
+    { name: 'Partner 17', logo: images.partenaire17 },
+    { name: 'Partner 18', logo: images.partenaire18 },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-white">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* HEADER */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-foreground mb-4">
             Nos partenaires
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ils nous font confiance et contribuent au succès de l'écosystème d'innovation
+            Ils accompagnent et soutiennent l’innovation en Casamance
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        {/* LOGOS GRID */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-8 flex items-center justify-center hover:shadow-lg transition-shadow border border-border group"
+              className="flex items-center justify-center transition duration-300"
             >
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#16A34A]/20 to-[#2563EB]/20 rounded-lg mx-auto mb-3 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <span className="text-2xl font-bold bg-gradient-to-r from-[#16A34A] to-[#2563EB] bg-clip-text text-transparent">
-                    {partner.name.slice(-1)}
-                  </span>
-                </div>
-                <div className="font-semibold text-foreground">{partner.name}</div>
-                <div className="text-xs text-muted-foreground mt-1">{partner.type}</div>
-              </div>
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="max-h-16 object-contain"
+              />
             </div>
           ))}
-        </div>
-
-        <div className="bg-gradient-to-r from-[#16A34A] to-[#2563EB] rounded-2xl p-12 text-center text-white">
-          <h3 className="text-3xl font-bold mb-4">
-            Devenez partenaire de CIT
-          </h3>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Associez votre marque à l'innovation et bénéficiez d'une visibilité unique auprès de l'écosystème tech
-          </p>
-          <div className="text-sm text-white/80 mb-4">
-            Partenaire clé : Innov'Zig - Université Assane Seck de Ziguinchor
-          </div>
-          <a
-            href="#contact"
-            className="inline-block bg-white text-[#16A34A] px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
-          >
-            Découvrir les opportunités de partenariat
-          </a>
         </div>
       </div>
     </section>

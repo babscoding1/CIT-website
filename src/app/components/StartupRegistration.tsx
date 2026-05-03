@@ -36,12 +36,20 @@ export default function StartupRegistration() {
     'Expansion',
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+) => {
+  let value = e.target.value;
+
+  if (e.target.name === 'website' && value && !value.startsWith('http')) {
+    value = 'https://' + value;
+  }
+
+  setFormData({
+    ...formData,
+    [e.target.name]: value,
+  });
+};
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();

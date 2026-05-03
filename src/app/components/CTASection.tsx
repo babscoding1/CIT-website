@@ -48,10 +48,10 @@ export default function CTASection() {
         </div>
 
         <div className="mt-12 pt-12 border-t border-white/10">
-          <p className="text-gray-400 mb-4">Rejoignez plus de 1,500 innovateurs</p>
+          <p className="text-gray-400 mb-4">Rejoignez les innovateurs</p>
           <div className="flex flex-wrap justify-center gap-8 items-center">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">80+</div>
+              <div className="text-3xl font-bold text-white">50+</div>
               <div className="text-sm text-gray-400">Startups</div>
             </div>
             <div className="text-center">
@@ -59,8 +59,8 @@ export default function CTASection() {
               <div className="text-sm text-gray-400">Partenaires</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">15+</div>
-              <div className="text-sm text-gray-400">Investisseurs</div>
+              <div className="text-3xl font-bold text-white">3000+</div>
+              <div className="text-sm text-gray-400">Participants</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-white">4</div>

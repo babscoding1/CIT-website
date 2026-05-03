@@ -1,268 +1,281 @@
 import { useState } from 'react';
-import { Play, Image as ImageIcon, Calendar, X } from 'lucide-react';
+import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { images } from '../../assets/images';
+import { video } from '../../assets/video';
+
+type MediaItem = {
+  type: 'image' | 'video';
+  url: string;
+  title: string;
+  description: string;
+};
 
 export default function MediaSection() {
   const [selectedTab, setSelectedTab] = useState<'photos' | 'videos'>('photos');
-  const [selectedYear, setSelectedYear] = useState<string>('all');
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<any>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeMedia, setActiveMedia] = useState<MediaItem | null>(null);
 
-  const photos = [
+  // 📁 EVENTS AVEC DESCRIPTION
+  const events = [
     {
       id: 1,
-      url: images.image1,
-      title: 'Ouverture CIT 2025',
-      year: '2025',
-      category: 'Conférence'
+      title: 'Semaine nationale de la jeunesse édition 2026 à Thies',
+      description: `Dans le cadre de la semaine nationale de la jeunesse édition 2026 à Thies, deux jeunes membres des équipes lauréates  de l'hackathon du CIT 2025 à savoir Youssouf DIEDHIOU  et Dado TAMEGA se sont classés à la deuxième place de la compétition innovation numérique lors de la semaine nationale de la jeunesse à thies.
+                    Sous le thème : La semaine nationale de la jeunesse au rythme de l'Olympisme, nos deux représentants ont su démontré d'une expertise remarquable permettant à la région de prendre la médaille d'argent.
+                    Avec la solution Ayo Dakar 2026 qui permet d'avoir des informations précises sur les JOJ avec l'intégration d'une assistante en wolof ,français et anglais,cette solution pourra être un guide pratique pour une inclusion de tous pour la réussite de cet événement.
+                    Avec ce résultat qui montre le potentiel des jeunes de la région mise en exergue par le CIT en permettant aux étudiants de s'exprimer et de sortir leurs potentiels.
+                    Un grand merci au gouverneur de la région et mention spéciale à l'inspecteur régional de la Jeunesse M.DIBA pour l'accompagnement.
+                    Casamance Innovation Tech osons l'innovation en Casamance.`,
+      year: '2026',
+      cover: images.semaine_jeunesse2,
+      images: [
+        {
+          url: images.semaine_jeunesse2,
+        },
+        {
+          url: images.semaine_jeunesse1,
+        },
+        {
+          url: images.semaine_jeunesse3,
+        },
+        {
+          url: images.semaine_jeunesse4,
+        }
+      ]
     },
     {
       id: 2,
-      url: 'https://images.unsplash.com/photo-1751139846142-99bd979534ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdGFydHVwJTIwcGl0Y2glMjBwcmVzZW50YXRpb24lMjBhZnJpY2F8ZW58MXx8fHwxNzc3NDc3NDU0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      title: 'Pitch Startups',
-      year: '2025',
-      category: 'Startups'
-    },
-    {
-      id: 3,
-      url: images.image3,
-      title: 'Ateliers de formation',
+      title: 'Hackathon 2024',
+      description: 'Compétition technologique intense',
       year: '2024',
-      category: 'Ateliers'
-    },
-    {
-      id: 4,
-      url: images.image6,
-      title: 'Stands d\'exposition',
-      year: '2024',
-      category: 'Exhibition'
-    },
-    {
-      id: 5,
-      url: images.image4,
-      title: 'Panel de discussions',
-      year: '2023',
-      category: 'Conférence'
-    },
-    {
-      id: 6,
-      url: images.image3,
-      title: 'Networking entrepreneurs',
-      year: '2023',
-      category: 'Networking'
-    },
-    {
-      id: 7,
-      url: images.image5,
-      title: 'Hackathon CIT',
-      year: '2024',
-      category: 'Hackathon'
-    },
-    {
-      id: 8,
-      url: 'https://images.unsplash.com/photo-1762968269894-1d7e1ce8894e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25mZXJlbmNlJTIwa2V5bm90ZSUyMHNwZWFrZXIlMjBzdGFnZXxlbnwxfHx8fDE3Nzc0Nzc0NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      title: 'Keynote speakers',
-      year: '2022',
-      category: 'Conférence'
-    },
+      cover: images.image5,
+      images: [
+        {
+          url: images.image5,
+          title: 'Équipes en action',
+          description: 'Travail collaboratif des développeurs'
+        },
+        {
+          url: images.image6,
+          title: 'Présentation finale',
+          description: 'Pitch devant le jury'
+        }
+      ]
+    }
   ];
 
+  // 🎬 VIDEOS AVEC DESCRIPTION
   const videos = [
     {
       id: 1,
-      title: 'CIT 2025 - Collaboration homme-machine',
-      thumbnail: 'https://images.unsplash.com/photo-1776039325163-f45315a484f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwdGVjaG5vbG9neSUyMGNvbmZlcmVuY2UlMjBhdWRpZW5jZXxlbnwxfHx8fDE3Nzc0Nzc0NTR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      duration: '12:45',
-      year: '2025',
-      views: '2.4K'
+      title: '1ʳᵉ Édition du Salon Casamance Innovation Tech',
+      description: `Retour sur la 1ʳᵉ Édition du Salon Casamance Innovation Tech
+                    Une initiative ambitieuse qui, dès sa première édition, a posé les bases d’un rendez-vous incontournable de l’innovation en Casamance.
+                    📌 Hackathon, expositions, panels, formations… Chaque année, le salon s’enrichit de contenus pertinents et d’expériences uniques, réunissant jeunes talents, experts, entreprises et acteurs du développement.
+                    Cap sur la #4 Édition !
+                    Elle s’annonce encore plus audacieuse, plus structurée, et résolument tournée vers l’avenir. Au cœur de cette édition : « Construire un futur intelligent : Collaboration entre humain et machine »
+                    📅 Soyez prêts à vivre une expérience unique où idées, talents et technologies se rencontrent pour construire un futur intelligent.
+                    Osons ensemble l’innovation en Casamance`,
+      videoUrl: video.Premier,
+      thumbnail: images.couv_vid_robtique
     },
     {
       id: 2,
-      title: 'Retour sur CIT 2024 - Enjeux climatiques',
-      thumbnail: 'https://images.unsplash.com/photo-1762028892701-692dc360db08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbm5vdmF0aW9uJTIwZXhoaWJpdGlvbiUyMGJvb3RofGVufDF8fHx8MTc3NzQ3NzQ1NXww&ixlib=rb-4.1.0&q=80&w=1080',
-      duration: '15:20',
-      year: '2024',
-      views: '3.1K'
+      title: '2ème Édition du Salon Casamance Innovation Tech',
+      description: `Retour sur la 2ème Édition du Salon Casamance Innovation Tech
+                    Chaque année, Casamance Innovation Tech confirme son positionnement comme l’un des événements majeurs dédiés à la technologie, à la créativité et à la transformation digitale en Casamance.
+                    La 2ème édition a été marquée par une programmation dynamique et impactante :  
+                    Hackathon stimulant l’innovation locale  
+                    Formations pointues autour des nouvelles technologies  
+                    Panels enrichissants avec des experts nationaux et internationaux  
+                    Expositions de solutions innovantes portées par des jeunes talents et startups
+                    Cette édition a permis de connecter les idées, les compétences et les énergies autour d’un seul objectif : Oser l’innovation au cœur de notre territoire.
+                    La 4ème Édition s’annonce encore plus ambitieuse, avec une vision élargie et des thématiques actuelles comme l’intelligence artificielle, la transition numérique, et la collaboration homme-machine.
+                    Cap sur l’innovation, cap sur l’avenir.`,
+      videoUrl: video.sTV,
+      thumbnail: images.couv_vid_sTV
     },
     {
       id: 3,
-      title: 'Pitch des startups gagnantes 2023',
-      thumbnail: 'https://images.unsplash.com/photo-1751139846142-99bd979534ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdGFydHVwJTIwcGl0Y2glMjBwcmVzZW50YXRpb24lMjBhZnJpY2F8ZW58MXx8fHwxNzc3NDc3NDU0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      duration: '18:30',
-      year: '2023',
-      views: '5.2K'
+      title: 'Compétition Robotique Inter-Établissements.',
+      description: `Salon Casamance Innovation Tech 2025 Du 4 au 6 décembre 2025, l’Alliance Française de Ziguinchor, Erastus Group et Centre Culturel Régional de Ziguinchor a vibré au rythme de l’ingéniosité et de la créativité des jeunes talents casamançais lors de la compétition robotique inter-établissements. Un moment fort du Salon où les élèves ont démontré leur maîtrise des technologies, leur esprit d’équipe et leur capacité à résoudre des défis techniques concrets à travers la programmation et la robotique. Au-delà de la compétition, c’est toute une jeunesse qui s’est levée pour imaginer l’avenir avec audace, porter l’innovation au cœur de l’éducation, et prouver que la relève technologique est bien là. Bravo à toutes les équipes pour leur engagement, leur passion et leurs solutions créatives ! Découvrez les temps forts en vidéo !
+                    Osons l’innovation en Casamance `,
+      videoUrl: video.robotique,
+      thumbnail: images.couv_vid_robtique
     },
     {
       id: 4,
-      title: 'CIT 2022 - Première édition highlights',
-      thumbnail: 'https://images.unsplash.com/photo-1762968269894-1d7e1ce8894e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25mZXJlbmNlJTIwa2V5bm90ZSUyMHNwZWFrZXIlMjBzdGFnZXxlbnwxfHx8fDE3Nzc0Nzc0NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      duration: '10:15',
-      year: '2022',
-      views: '4.8K'
-    },
+      title: '4ème Édition du Salon Casamance Innovation Tech',
+      description: `Dans le cadre de la 4eme édition du Salon Casamance Innovation Tech, nous avons l'honneur d’accueillir Hélène Agnès Diène, socio-anthropologue de la santé, parmi nos invités de marque.
+      Son expertise, à l'intersection entre sciences sociales et enjeux de santé publique, apportera un éclairage essentiel sur les dynamiques culturelles, communautaires et humaines au cœur des innovations. Sa présence illustre notre volonté d'intégrer une approche holistique de l’innovation, où la technologie dialogue avec les réalités sociales et les besoins des populations.
+      À travers son intervention, le Salon ambitionne d'ouvrir un espace de réflexion stratégique sur l'impact social de l'innovation en santé, dans un contexte local et africain en pleine mutation.
+      Casamance Innovation Tech 2025, c'est aussi cela : croiser les disciplines, valoriser l'humain et bâtir des ponts entre savoirs scientifiques et transformations technologiques.`,
+      videoUrl: video.agnes_coly,
+      thumbnail: images.couv_vid_agnes,
+    }
   ];
 
-  const years = ['all', '2025', '2024', '2023', '2022'];
+  // NAVIGATION IMAGES
+  const nextImage = () => {
+    setCurrentIndex((prev) =>
+      prev === selectedEvent.images.length - 1 ? 0 : prev + 1
+    );
+  };
 
-  const filteredPhotos = selectedYear === 'all' 
-    ? photos 
-    : photos.filter(photo => photo.year === selectedYear);
-
-  const filteredVideos = selectedYear === 'all'
-    ? videos
-    : videos.filter(video => video.year === selectedYear);
+  const prevImage = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? selectedEvent.images.length - 1 : prev - 1
+    );
+  };
 
   return (
     <section id="media" className="py-20 bg-gradient-to-b from-white to-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+      <div className="max-w-7xl mx-auto px-4">
+
+        {/* HEADER */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Médiathèque
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Revivez les moments forts des éditions précédentes de Casamance Innovation Tech
-          </p>
+          <h2 className="text-4xl font-bold">Médiathèque</h2>
         </div>
 
-        {/* Tabs */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
-          <div className="flex bg-white rounded-lg shadow-sm border border-border p-1">
+        {/* TABS */}
+        <div className="flex justify-center mb-10">
+          <div className="flex bg-white shadow rounded-lg p-1">
             <button
               onClick={() => setSelectedTab('photos')}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all ${
-                selectedTab === 'photos'
-                  ? 'bg-gradient-to-r from-[#16A34A] to-[#2563EB] text-white'
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
+              className={`px-6 py-2 rounded ${selectedTab === 'photos' ? 'bg-green-500 text-white' : ''}`}
             >
-              <ImageIcon size={18} />
-              <span>Photos</span>
+              Photos
             </button>
             <button
               onClick={() => setSelectedTab('videos')}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-md transition-all ${
-                selectedTab === 'videos'
-                  ? 'bg-gradient-to-r from-[#16A34A] to-[#2563EB] text-white'
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
+              className={`px-6 py-2 rounded ${selectedTab === 'videos' ? 'bg-green-500 text-white' : ''}`}
             >
-              <Play size={18} />
-              <span>Vidéos</span>
+              Vidéos
             </button>
-          </div>
-
-          {/* Year filter */}
-          <div className="flex items-center space-x-2">
-            <Calendar size={18} className="text-muted-foreground" />
-            <select
-              value={selectedYear}
-              onChange={(e) => setSelectedYear(e.target.value)}
-              className="bg-white border border-border rounded-lg px-4 py-2 text-foreground focus:outline-none focus:ring-2 focus:ring-[#16A34A]"
-            >
-              <option value="all">Toutes les éditions</option>
-              {years.slice(1).map(year => (
-                <option key={year} value={year}>CIT {year}</option>
-              ))}
-            </select>
           </div>
         </div>
 
-        {/* Content */}
+        {/* EVENTS */}
         {selectedTab === 'photos' ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {filteredPhotos.map((photo) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {events.map((event) => (
               <div
-                key={photo.id}
-                onClick={() => setLightboxImage(photo.url)}
-                className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-2xl transition-all"
+                key={event.id}
+                onClick={() => {
+                  setSelectedEvent(event);
+                  setCurrentIndex(0);
+                }}
+                className="cursor-pointer group relative rounded-xl overflow-hidden"
               >
                 <img
-                  src={photo.url}
-                  alt={photo.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  src={event.cover}
+                  className="w-full h-48 object-cover group-hover:scale-105 transition"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <div className="text-xs text-[#16A34A] font-semibold mb-1">
-                      {photo.category}
-                    </div>
-                    <h4 className="text-white font-semibold">{photo.title}</h4>
-                    <p className="text-white/70 text-sm">CIT {photo.year}</p>
+
+                <div className="absolute inset-0 bg-black/40 flex items-end p-4">
+                  <div>
+                    <h4 className="text-white font-bold">{event.title}</h4>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredVideos.map((video) => (
+          /* VIDEOS */
+          <div className="flex gap-6 overflow-x-auto pb-4">
+            {videos.map((vid) => (
               <div
-                key={video.id}
-                className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-border"
+                key={vid.id}
+                className="group relative min-w-[300px] h-[180px] rounded-xl overflow-hidden cursor-pointer bg-black"
+                onClick={() =>
+                  setActiveMedia({
+                    type: 'video',
+                    url: vid.videoUrl,
+                    title: vid.title,
+                    description: vid.description
+                  })
+                }
               >
-                <div className="relative aspect-video overflow-hidden bg-slate-100">
-                  <img
-                    src={video.thumbnail}
-                    alt={video.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play size={28} className="text-[#16A34A] ml-1" fill="currentColor" />
-                    </div>
-                  </div>
-                  <div className="absolute bottom-3 right-3 bg-black/80 text-white text-xs px-2 py-1 rounded">
-                    {video.duration}
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h4 className="font-semibold text-foreground mb-2 group-hover:text-[#16A34A] transition-colors">
-                    {video.title}
-                  </h4>
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <span>{video.views} vues</span>
-                    <span>CIT {video.year}</span>
-                  </div>
+                <img
+                  src={vid.thumbnail}
+                  className="w-full h-full object-cover group-hover:opacity-0 transition"
+                />
+
+                <video
+                  src={vid.videoUrl}
+                  muted
+                  loop
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100"
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.pause();
+                    e.currentTarget.currentTime = 0;
+                  }}
+                />
+
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <Play className="text-white" />
                 </div>
               </div>
             ))}
           </div>
         )}
-
-        {/* Empty state */}
-        {selectedTab === 'photos' && filteredPhotos.length === 0 && (
-          <div className="text-center py-12">
-            <ImageIcon size={48} className="mx-auto text-muted-foreground mb-4" />
-            <p className="text-muted-foreground">Aucune photo disponible pour cette édition</p>
-          </div>
-        )}
-
-        {selectedTab === 'videos' && filteredVideos.length === 0 && (
-          <div className="text-center py-12">
-            <Play size={48} className="mx-auto text-muted-foreground mb-4" />
-            <p className="text-muted-foreground">Aucune vidéo disponible pour cette édition</p>
-          </div>
-        )}
       </div>
 
-      {/* Lightbox */}
-      {lightboxImage && (
-        <div
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
-          onClick={() => setLightboxImage(null)}
-        >
-          <button
-            className="absolute top-4 right-4 text-white hover:text-[#16A34A] transition-colors"
-            onClick={() => setLightboxImage(null)}
-          >
-            <X size={32} />
+      {/* EVENT MODAL */}
+      {selectedEvent && (
+        <div className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-6">
+
+          <button onClick={() => setSelectedEvent(null)} className="absolute top-5 right-5 text-white">
+            <X size={30} />
           </button>
+
           <img
-            src={lightboxImage}
-            alt="Image agrandie"
-            className="max-w-full max-h-full object-contain"
-            onClick={(e) => e.stopPropagation()}
+            src={selectedEvent.images[currentIndex].url}
+            className="max-h-[60vh] rounded-xl"
           />
+
+          <button onClick={prevImage} className="absolute left-5 text-white">
+            <ChevronLeft size={40} />
+          </button>
+
+          <button onClick={nextImage} className="absolute right-5 text-white">
+            <ChevronRight size={40} />
+          </button>
+
+          {/* DESCRIPTION IMAGE */}
+          <div className="text-white mt-6 text-center max-w-7xl">
+            <h3 className="text-xl font-bold">
+              {selectedEvent.title}
+            </h3>
+            <p className="text-gray-300">
+              {selectedEvent.description}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* VIDEO MODAL */}
+      {activeMedia && activeMedia.type === 'video' && (
+        <div className="fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center p-6">
+
+          <button onClick={() => setActiveMedia(null)} className="absolute top-5 right-5 text-white">
+            <X size={30} />
+          </button>
+
+          <video
+            src={activeMedia.url}
+            controls
+            autoPlay
+            className="max-h-[60vh] rounded-xl"
+          />
+
+          {/* DESCRIPTION VIDEO */}
+          <div className="text-white mt-6 text-center max-w-5xl">
+            <h3 className="text-2xl font-bold">{activeMedia.title}</h3>
+            <p className="text-gray-300">{activeMedia.description}</p>
+          </div>
         </div>
       )}
     </section>

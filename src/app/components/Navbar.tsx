@@ -11,11 +11,10 @@ export default function Navbar() {
     { name: 'Startups', href: '#startup-registration' },
     { name: 'Médiathèque', href: '#media' },
     { name: 'Actualités', href: '#news' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -42,9 +41,11 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            <button className="bg-gradient-to-r from-[#16A34A] to-[#2563EB] text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
-              Participer
-            </button>
+            <a href="#contact">
+              <button className="bg-gradient-to-r from-[#16A34A] to-[#2563EB] text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                Contact
+              </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -69,9 +70,7 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            <button className="w-full bg-gradient-to-r from-[#16A34A] to-[#2563EB] text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
-              Participer
-            </button>
+            
           </div>
         )}
       </div>

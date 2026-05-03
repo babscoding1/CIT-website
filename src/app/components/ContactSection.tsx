@@ -9,11 +9,34 @@ export default function ContactSection() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('Message envoyé avec succès !');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("https://formspree.io/f/xdabkvrd", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      alert("Message envoyé avec succès !");
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } else {
+      alert("Erreur lors de l'envoi.");
+    }
+  } catch (error) {
+    alert("Erreur réseau.");
+  }
+};
 
   return (
     <section id="contact" className="py-20 bg-white">

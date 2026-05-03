@@ -1,6 +1,5 @@
 import { Facebook, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
-import logo from '../../imports/image.png';
-
+import { images } from '../../assets/images';
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-slate-900 to-slate-800 text-white">
@@ -10,9 +9,9 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <img 
-                src={logo} 
+                src={images.logo} 
                 alt="Casamance Innovation Tech" 
-                className="h-16 w-auto brightness-0 invert"
+                className="h-16 w-auto "
               />
             </div>
             <p className="text-sm text-gray-300">
