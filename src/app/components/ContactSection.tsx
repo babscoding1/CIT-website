@@ -70,8 +70,7 @@ export default function ContactSection() {
               </div>
               <h3 className="font-semibold text-foreground mb-2">Email</h3>
               <p className="text-muted-foreground">
-                contact@cit-senegal.com<br />
-                info@cit-senegal.com
+                contactcasatech@gmail.com
               </p>
             </div>
 

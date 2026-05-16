@@ -244,7 +244,7 @@ export default function StartupRegistration() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
-                    placeholder="contact@startup.com"
+                    placeholder="contact@gmail.com"
                   />
                 </div>
 
@@ -324,16 +324,6 @@ export default function StartupRegistration() {
               </div>
             </form>
           )}
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            Vous avez des questions ? Contactez-nous à{' '}
-            <a href="mailto:startups@casamanceinnovationtech.com" className="text-[#16A34A] hover:text-[#2563EB] transition-colors">
-              startups@casamanceinnovationtech.com
-            </a>
-          </p>
         </div>
       </div>
     </section>

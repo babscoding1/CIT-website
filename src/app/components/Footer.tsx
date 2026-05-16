@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail size={16} className="text-[#16A34A]" />
-                <span>contact@cit-senegal.com</span>
+                <span>contactcasatech@gmail.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone size={16} className="text-[#16A34A]" />
