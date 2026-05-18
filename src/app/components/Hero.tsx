@@ -19,7 +19,7 @@ export default function Hero() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white mb-6">
             <Sparkles size={18} className="text-[#16A34A]" />
-            <span>Prochaine édition - 4 et 5 Décembre 2026 au Centre Culturel</span>
+            <span>Prochaine édition - 4 et 5 Décembre 2026 au Centre Culturel Régional de Ziguinchor</span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
@@ -57,7 +57,7 @@ export default function Hero() {
       </div>
 
       {/* Decorative gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent z-10"></div>
     </section>
   );
 }

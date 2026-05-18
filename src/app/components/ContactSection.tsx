@@ -59,8 +59,9 @@ export default function ContactSection() {
               </div>
               <h3 className="font-semibold text-foreground mb-2">Adresse</h3>
               <p className="text-muted-foreground">
-                Centre de Convention<br />
-                Ziguinchor, Sénégal
+                <a href="https://maps.google.com/?q=Centre+Culturel+Régional,+Ziguinchor,+Sénégal" target="_blank" rel="noopener noreferrer">
+                  Centre Culturel Régional, Ziguinchor, Sénégal
+                </a>
               </p>
             </div>
 
@@ -70,7 +71,7 @@ export default function ContactSection() {
               </div>
               <h3 className="font-semibold text-foreground mb-2">Email</h3>
               <p className="text-muted-foreground">
-                contactcasatech@gmail.com
+                <a href="mailto:contactcasatech@gmail.com">contactcasatech@gmail.com</a>
               </p>
             </div>
 
@@ -80,8 +81,7 @@ export default function ContactSection() {
               </div>
               <h3 className="font-semibold text-foreground mb-2">Téléphone</h3>
               <p className="text-muted-foreground">
-                +221 XX XXX XX XX<br />
-                +221 XX XXX XX XX
+                <a href="tel:+221709663939">+221 70 966 39 39</a>
               </p>
             </div>
           </div>

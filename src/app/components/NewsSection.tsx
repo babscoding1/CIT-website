@@ -21,12 +21,21 @@ export default function NewsSection() {
       color: 'text-purple-600',
       link: 'https://www.osiris.sn/Casamance-Innovation-Tech.html',
     },
+    {
+      title: 'Casamance innovation tech 2 ème édition',
+      date: '05 Janvier 2024',
+      category: 'Événement',
+      excerpt: `Nous vous partageons le rapport de la 2 ème édition du salon de l'innovation technologique de la Casamance " Casamance innovation tech" du 07 au 09 décembre 2023. Revivez les moments forts avec panels, formations,ateliers et meetup.`,
+      image: images.couv_vid_sTV,
+      color: 'text-[#16A34A]',
+      link: 'https://www.youtube.com/watch?v=mdkp3ZnW-0w',
+    },
   ];
 
   return (
     <section id="news" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-end mb-12">
+        <div className="text-center mb-12">
           <div>
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Actualités
@@ -35,10 +44,6 @@ export default function NewsSection() {
               Les dernières nouvelles de l'écosystème CIT
             </p>
           </div>
-          <button className="hidden md:flex items-center space-x-2 text-[#16A34A] hover:text-[#2563EB] transition-colors group">
-            <span>Voir toutes les actualités</span>
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -74,7 +74,7 @@ export default function MediaSection() {
       title:
         'Semaine nationale de la jeunesse édition 2026 à Thies',
       
-      edition: '5ème édition',
+      edition: '4ème édition',
 
       date: '29 Mars - 03 Avril 2026',
 
@@ -373,35 +373,47 @@ export default function MediaSection() {
 
       year: '2025',
 
-      cover: images.form_robotique_1,
+      cover: images.serie_dessins_animes_educatifs1,
 
       images: [
         {
-          url: images.form_robotique_1
+          url: images.serie_dessins_animes_educatifs1
         },
         {
-          url: images.form_robotique_2
+          url: images.serie_dessins_animes_educatifs2
         },
         {
-          url: images.form_robotique_3
+          url: images.serie_dessins_animes_educatifs3
         },
         {
-          url: images.form_robotique_4
+          url: images.serie_dessins_animes_educatifs4
         },
         {
-          url: images.form_robotique_5
+          url: images.serie_dessins_animes_educatifs5
         },
         {
-          url: images.form_robotique_6
+          url: images.serie_dessins_animes_educatifs6
         },
         {
-          url: images.form_robotique_7
+          url: images.serie_dessins_animes_educatifs7
         },
         {
-          url: images.form_robotique_8
+          url: images.serie_dessins_animes_educatifs8
         },
         {
-          url: images.form_robotique_9
+          url: images.serie_dessins_animes_educatifs9
+        },
+        {
+          url: images.serie_dessins_animes_educatifs10
+        },
+        {
+          url: images.serie_dessins_animes_educatifs11
+        },
+        {
+          url: images.serie_dessins_animes_educatifs12
+        },
+        {
+          url: images.serie_dessins_animes_educatifs13
         }
       ]
     },
@@ -471,6 +483,300 @@ export default function MediaSection() {
         },
       ]
     },
+    {
+      id: 12,
+
+      title:'Partenaires 3e édition',
+
+      edition: '3ème édition',
+
+      date: '13 Décembre 2024',
+
+      description: `Un mot à nos partenaires qui ont contribué à la réussite de la troisième édition du rendez de l'innovation tech en Casamance, Jerejef, Merci ,Obligado Thanks. C'est grâce à vous que nous avons pu réaliser cette édition. RV en 2025 pour la 4eme édition avec pleins de surprises. Casamance innovation tech osons l'innovation en Casamance.`,
+
+      year: '2024',
+
+      cover: images.images_part_3e_ed,
+
+      images: [
+        {
+          url: images.images_part_3e_ed
+        }
+      ]
+    },
+    {
+      id: 13,
+
+      title:'Day 3 ',
+
+      edition: '3ème édition',
+
+      date: '07 Décembre 2024',
+
+      description: `Pour le troisième et dernier jour au programme une formation de qualité avec M.Bachir DIEDHIOU sur "comment tirer profit de l'intelligence artificielle pour développer son business". Une formation très enrichissante avec des cas pratiques afin d'accompagner les managers de pouvoir mieux gérer leurs business. Dans l'après-midi, place à la finale de l'hackathon avec des projets de qualités. Fait majeur de la journée , la visite des enfants du village d'enfants SOS de Ziguinchor venus découvrir les initiatives tech.  Casamance innovation tech osons l'innovation en Casamance.`,
+
+      year: '2024',
+
+      cover: images.jour3_edition3_1,
+
+      images: [
+        {
+          url: images.jour3_edition3_1
+        },
+        {
+          url: images.jour3_edition3_2
+        },
+        {
+          url: images.jour3_edition3_3
+        },
+        {
+          url: images.jour3_edition3_4
+        },
+      ]
+    },
+    {
+      id: 14,
+
+      title:'Day 2',
+
+      edition: '3ème édition',
+
+      date: '06 Décembre 2024',
+
+      description: `Pour le deuxième jour du salon, au programme un panel très enrichissant avec nos excellents panelistes à savoir M.Bara DIAW de Sunucode, Mme Adama SOW de HeberSenegal et  Mademoiselle Adama Sira BA étudiante à Supdeco Dakar sur le thème" comment moderniser le secteur public grâce à l'intelligence artificielle". Ce panel de haute facture avec des propositions concrètes sur comment l'IA pourrait aider à rendre moderne le secteur public. Après le panel, place à l'atelier sur comment rédiger efficacement des requêtes avec Chatgpt ? avec M.Abraham SADIO. Casamance innovation tech osons l'innovation en Casamance.`,
+
+      year: '2024',
+
+      cover: images.jour2_edition3_1,
+
+      images: [
+        {
+          url: images.jour2_edition3_1
+        },
+        {
+          url: images.jour2_edition3_2
+        },
+        {
+          url: images.jour2_edition3_3
+        },
+        {
+          url: images.jour2_edition3_4
+        },
+        {
+          url: images.jour2_edition3_5
+        }
+      ]
+    },
+    {
+      id: 15,
+
+      title:'Day 1',
+
+      edition: '3ème édition',
+
+      date: '05 Décembre 2024',
+
+      description: `Le 05 décembre début de la 3eme édition du salon Casamance innovation tech était marqué par la cérémonie d'ouverture sous la présence de structure locale mais aussi de représentant du ministère de la formation professionnelle suivi de visite de stands pour voir le talent des innovations de la location mais aussi de startups venus de la Gambie. Le panel 1 sur le rôle et impact de l'intelligence artificielle sur le développement économique a permis à nos experts de mettre en exergue l'impact que l'IA peut avoir sur le développement de Ziguinchor. Le hackathon sur le thème "optimisation des services publics grâce à l'IA" a clôturé la première journée. Casamance innovation tech osons l'innovation en Casamance.`,
+
+      year: '2024',
+
+      cover: images.jour1_edition3_1,
+
+      images: [
+        {
+          url: images.jour1_edition3_1
+        },
+        {
+          url: images.jour1_edition3_2
+        },
+        {
+          url: images.jour1_edition3_3
+        },
+        {
+          url: images.jour1_edition3_4
+        },
+        {
+          url: images.jour1_edition3_5
+        },
+        {
+          url: images.jour1_edition3_6
+        },
+        {
+          url: images.jour1_edition3_7
+        }
+      ]
+    },
+    {
+      id: 16,
+
+      title:'Visite de travail au siège de KANARIMAGIK ',
+
+      edition: '3ème édition',
+
+      date: '21 Septembre 2024',
+
+      description: `Visite de travail au crealab à Ngor siège de KANARIMAGIK startup sénégalaise spécialisée sur les bandes dessinées avec le numérique occasion pour faire l'état de notre collaboration, de discuter sur la participation de la structure à la 3eme édition de Casamance innovation tech en décembre 2024. Prêt pour une aventure sur les bandes dessinées numériques , rendez vous du 05 au 07 décembre au salon de l'innovation. Casamance innovation tech "osons l'innovation en Casamance"`,
+
+      year: '2024',
+
+      cover: images.visite_kanarimagik1,
+
+      images: [
+        {
+          url: images.visite_kanarimagik1
+        },
+        {
+          url: images.visite_kanarimagik2
+        },
+        {
+          url: images.visite_kanarimagik3
+        },
+      ]
+    },
+    {
+      id: 17,
+
+      title:'Day 3',
+
+      edition: '2ème édition',
+
+      date: '09 Décembre 2023',
+
+      description: `Troisième et dernier  jour de la 2 ème édition du salon de l'innovation technologique de la Casamance. Au programme de la journée de découverte et d'ateliers pour les élèves de l'élémentaire,du collège et du lycée du département de Ziguinchor avec Senfablab SenfablabLinguere Fablab suivi de meet UP avec des entrepreneurs de Ziguinchor et de Dakar pour partager leurs parcours avec leurs jeunes frères et sœurs et terminer par la cérémonie de clôture. Casamance innovation tech" osons l'innovation en Casamance"`,
+
+      year: '2023',
+
+      cover: images.jour3_edition2_1,
+
+      images: [
+        {
+          url: images.jour3_edition2_1
+        },
+        {
+          url: images.jour3_edition2_2
+        },
+        {
+          url: images.jour3_edition2_3
+        },
+        {
+          url: images.jour3_edition2_4
+        },
+        {
+          url: images.jour3_edition2_5
+        },
+        {
+          url: images.jour3_edition2_6
+        },
+        {
+          url: images.jour3_edition2_7
+        },
+        {
+          url: images.jour3_edition2_8
+        },
+        {
+          url: images.jour3_edition2_9
+        },
+        {
+          url: images.jour3_edition2_10
+        },
+        {
+          url: images.jour3_edition2_11
+        },
+        {
+          url: images.jour3_edition2_12
+        },
+      ]
+    },
+    {
+      id: 18,
+
+      title:'Day 2',
+
+      edition: '2ème édition',
+
+      date: '08 Décembre 2023',
+
+      description: `Deuxieme jour de la 2ème édition du salon de l'innovation technologique de la Casamance. Au programme de la journée deux panels sur l'intelligence artificielle et le financement des projets numériques suivi d'atelier de formation sur le montage vidéo avec mobile et outils de design avec l'équipe de KANARIMAGIK Une journée riche en partages d'expériences entre les panelistes ,les étudiants et les entrepreneurs de la  régions. Rendez vous le 09 décembre pour la suite des programmes. Casamance innovation tech" osons l'innovation en Casamance"`,
+
+      year: '2023',
+
+      cover: images.jour2_edition2_1,
+
+      images: [
+        {
+          url: images.jour2_edition2_1
+        },
+        {
+          url: images.jour2_edition2_2
+        },
+        {
+          url: images.jour2_edition2_3
+        },
+        {
+          url: images.jour2_edition2_4
+        },
+        {
+          url: images.jour2_edition2_5
+        },
+        {
+          url: images.jour2_edition2_6
+        },
+        {
+          url: images.jour2_edition2_7
+        },
+        {
+          url: images.jour2_edition2_8
+        },
+        {
+          url: images.jour2_edition2_9
+        }
+      ]
+    },
+    {
+      id: 19,
+
+      title:'Day 1',
+
+      edition: '2ème édition',
+
+      date: '07 Décembre 2023',
+
+      description: `Début de la 2 ème édition du salon de l'innovation technologique de la Casamance ce jeudi au cdeps de Ziguinchor en présence des autorités administratives, scolaires, des étudiants,des partenaires techniques...  Au programme de la journée la cérémonie officielle avec visite de stands, un panel sur : qu'elle place du numérique pour l'insertion des jeunes ? Et dans l'après midi le lancement du programme startup 4 xaleyi avec kanarimagik. Une journée riche en partages d'expériences entre les acteurs locaux et les entrepreneurs des autres régions. Rendez vous le 08 décembre pour la suite des programmes. Casamance innovation tech" osons l'innovation en Casamance"`,
+
+      year: '2023',
+
+      cover: images.jour1_edition2_1,
+
+      images: [
+        {
+          url: images.jour1_edition2_1
+        },
+        {
+          url: images.jour1_edition2_2
+        },
+        {
+          url: images.jour1_edition2_3
+        },
+        {
+          url: images.jour1_edition2_4
+        },
+        {
+          url: images.jour1_edition2_5
+        },
+        {
+          url: images.jour1_edition2_6
+        },
+        {
+          url: images.jour1_edition2_7
+        },
+        {
+          url: images.jour1_edition2_8
+        },
+        {
+          url: images.jour1_edition2_9
+        }
+      ]
+    },
   ];
 
   // =========================
@@ -478,51 +784,15 @@ export default function MediaSection() {
   // =========================
 
   const videos = [
+    
     {
       id: 1,
 
-      title:
-        '1ʳᵉ Édition du Salon Casamance Innovation Tech',
-
-      date: '10 Mars 2025',
-
-      edition: '1ère édition',
-
-      description:
-        'Retour sur la 1ʳᵉ édition du Salon Casamance Innovation Tech.',
-
-      videoUrl: video.Premier,
-
-      thumbnail: images.couv_vid_robtique
-    },
-
-    {
-      id: 2,
-
-      title:
-        '2ème Édition du Salon Casamance Innovation Tech',
-
-      edition: '2ème édition',
-
-      date: '22 Juin 2025',
-
-      description:
-        'Chaque année, Casamance Innovation Tech confirme son positionnement comme l’un des événements majeurs dédiés à la technologie.',
-
-      videoUrl: video.sTV,
-
-      thumbnail: images.couv_vid_sTV
-    },
-
-    {
-      id: 3,
-
-      title:
-        '#casamanceinnovationtech#4 => Compétition Robotique Inter-Établissements',
+      title: 'Compétition Robotique Inter-Établissements',
 
       edition: '4ème édition',
 
-      date: '06 Décembre 2025',
+      date: '04-06 Décembre 2025',
 
       description:`Salon Casamance Innovation Tech 2025. Du 4 au 6 décembre 2025, l’Alliance Française de Ziguinchor, Erastus Group et Centre Culturel Régional de Ziguinchor a vibré au rythme de l’ingéniosité et de la créativité des jeunes talents casamançais lors de la compétition robotique inter-établissements. Un moment fort du Salon où les élèves ont démontré leur maîtrise des technologies, leur esprit d’équipe et leur capacité à résoudre des défis techniques concrets à travers la programmation et la robotique. Au-delà de la compétition, c’est toute une jeunesse qui s’est levée pour imaginer l’avenir avec audace, porter l’innovation au cœur de l’éducation, et prouver que la relève technologique est bien là.`,
 
@@ -530,24 +800,165 @@ export default function MediaSection() {
 
       thumbnail: images.couv_vid_robtique
     },
-
     {
-      id: 4,
+      id: 2,
 
-      title:
-        '4ème Édition du Salon Casamance Innovation Tech',
+      title: 'Hélène Agnès Diène',
 
       edition: '4ème édition',
 
-      date: '07 Décembre 2025',
+      date: '29 Novembre 2025',
 
-      description:
-        'Construire un futur intelligent : collaboration entre humain et machine.',
+      description: `Dans le cadre de la 4# édition du Salon Casamance Innovation Tech, nous avons l'honneur d’accueillir Hélène Agnès Diène, socio-anthropologue de la santé, parmi nos invités de marque. Son expertise, à l'intersection entre sciences sociales et enjeux de santé publique, apportera un éclairage essentiel sur les dynamiques culturelles, communautaires et humaines au cœur des innovations. Sa présence illustre notre volonté d'intégrer une approche holistique de l'innovation, où la technologie dialogue avec les réalités sociales et les besoins des populations. À travers son intervention, le Salon ambitionne d'ouvrir un espace de réflexion stratégique sur l'impact social de l'innovation en santé, dans un contexte local et africain en pleine mutation.`,
 
       videoUrl: video.agnes_coly,
 
       thumbnail: images.couv_vid_agnes
-    }
+    },
+    {
+      id: 3,
+
+      title: 'Gérard Dacosta',
+
+      edition: '4ème édition',
+
+      date: '24 Novembre 2025',
+
+      description: `Dans le cadre de la 4#édition du Salon Casamance Innovation Tech, nous avons le plaisir d’annoncer la #participation de Gérard Dacosta, ingénieur en cybersécurité et auteur reconnu dans le domaine de la transformation digitale. Sa présence marque une volonté affirmée de renforcer les capacités locales en matière de sécurité numérique, un enjeu crucial à l’ère de l’innovation technologique.`,
+
+      videoUrl: video.gerar_dasylva,
+
+    },
+    {
+      id: 4,
+
+      title: 'Serigne Mbacké SECK',
+
+      edition: '4ème édition',
+
+      date: '19 Novembre 2025',
+
+      description: `Nous avons le plaisir d’annoncer la participation de Serigne Mbacké SECK, ingénieur en génie logiciel et spécialiste en #intelligence artificielle appliquée à la santé, parmi nos prestigieux invités. Son expertise à l’intersection de la tech et de la santé apportera un éclairage précieux sur les innovations numériques au service du bien-être et de la médecine de demain.`,
+
+      videoUrl: video.serigne_seck,
+
+    },
+    {
+      id: 5,
+
+      title: 'Rendez-vous pour l\'edition 4',
+
+      edition: '4ème édition',
+
+      date: '10 Novembre 2025',
+
+      description: `Casamance Innovation Tech revient pour sa 4# édition ! Chaque année, une nouvelle innovation. Chaque édition, un nouveau cap franchi. Rendez-vous les 04, 05 et 06 décembre 2025 pour vivre l’événement digital majeur de la région. Entrepreneuriat, technologie, intelligence artificielle, design, marketing digital… La Casamance continue d’oser, d’innover et d’inspirer.  `,
+
+      videoUrl: video.rv_4_edition,
+
+    },
+    {
+      id: 6,
+
+      title: 'Presentation en Francais: Christian Mendy',
+
+      edition: '3ème édition',
+
+      date: '29 Novembre 2025',
+
+      description: `Prêt pour la 3eme édition de Casamance innovation tech 🥳🥳🥳. Retrouvez-nous du 05 au 07 décembre 2024 au centre culturel de Ziguinchor pour parler d'innovation tech. En vidéo une présentation en français de l'événement.`,
+
+      videoUrl: video.christian_3ed_francais,
+
+    },
+    {
+      id: 7,
+
+      title: 'Presentation en Creol: Awa Diatta',
+
+      edition: '3ème édition',
+
+      date: '26 Novembre 2025',
+
+      description: `Prêt pour la 3eme édition de Casamance innovation tech 🥳🥳🥳. Retrouvez-nous du 05 au 07 décembre 2024 au centre culturel de Ziguinchor pour parler d'innovation tech. En vidéo une présentation en créole de l'événement.`,
+
+      videoUrl: video.awa_diatta_3ed_creol,
+
+    },
+    {
+      id: 8,
+
+      title: 'Presentation en Wolof: Christian Mendy',
+
+      edition: '3ème édition',
+
+      date: '21 Novembre 2025',
+
+      description: `Prêt pour la 3eme édition de Casamance innovation tech 🥳🥳🥳. Retrouvez-nous du 05 au 07 décembre 2024 au centre culturel de Ziguinchor pour parler d'innovation tech. En vidéo une présentation en wolof de l'événement.`,
+
+      videoUrl: video.christian_3ed_wolof,
+
+    },
+    {
+      id: 9,
+
+      title: 'Revivez les moments de la 3eme édition',
+
+      edition: '3ème édition',
+
+      date: '05-07 Décembre 2024',
+
+      description: `Osons l'innovation avec Casamance Innovation Tech pour la 3eme édition les 05,06 et 07 décembre 2024 à Ziguinchor. Jamais 2 sans 3 ditons, pour la 3 eme vous serez bien servi 🎉🎉🎉. Restez connecté pour découvrir la magie de l'innovation avec l'intelligence artificielle.`,
+
+      videoUrl: video.presentation_3ed,
+
+    },
+    {
+      id: 10,
+
+      title: '2ème Édition du Salon Casamance Innovation Tech',
+
+      edition: '2ème édition',
+
+      date: '05 Janvier 2024',
+
+      description: `Chaque année, Casamance Innovation Tech confirme son positionnement comme l’un des événements majeurs dédiés à la technologie, à la créativité et à la transformation digitale en Casamance. La 2ème édition a été marquée par une programmation dynamique et impactante : Hackathon stimulant l’innovation locale. Formations pointues autour des nouvelles technologies. Panels enrichissants avec des experts nationaux et internationaux. Expositions de solutions innovantes portées par des jeunes talents et startups. Cette édition a permis de connecter les idées, les compétences et les énergies autour d’un seul objectif : Oser l’innovation au cœur de notre territoire.`,
+
+      videoUrl: video.sTV,
+
+      thumbnail: images.couv_vid_sTV
+    },
+    {
+      id: 11,
+
+      title: 'Revivez les moments de la 2ème édition',
+
+      edition: '2ème édition',
+
+      date: '05 Janvier 2024',
+
+      description: `Revivez en vidéo la 2eme édition de Casamance Innovation Tech en 2023 organisé au CDEPS de Ziguinchor. Nous avons eu la présence de plus de 300 participants , avec des panels , formations et ateliers sur le thème " la technologie comme outil de création d'emploi pour les jeunes ". Cette édition a permis à beaucoup d'enfants d'être en contact avec la technologie lors des ateliers avec des experts. `,
+
+      videoUrl: video.presentation_2ed,
+
+      thumbnail: images.couv_vid_sTV
+    },
+    {
+      id: 12,
+
+      title:
+        '1ʳᵉ Édition du Salon Casamance Innovation Tech',
+
+      date: '08-10 Décembre 2022',
+
+      edition: '1ère édition',
+
+      description: `Une initiative ambitieuse qui, dès sa première édition, a posé les bases d’un rendez-vous incontournable de l’innovation en Casamance. Hackathon, expositions, panels, formations… Chaque année, le salon s’enrichit de contenus pertinents et d’expériences uniques, réunissant jeunes talents, experts, entreprises et acteurs du développement.`,
+
+      videoUrl: video.Premier,
+
+      thumbnail: images.couv_vid_robtique
+    },
   ];
 
   // =========================
@@ -782,17 +1193,14 @@ export default function MediaSection() {
                   })
                 }
               >
-                <img
-                  src={vid.thumbnail}
-                  className="w-full h-full object-cover group-hover:opacity-0 transition duration-500"
-                />
+
 
                 <video
                   src={vid.videoUrl}
                   muted
-                  loop
+                  preload="metadata"
                   playsInline
-                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   onMouseEnter={(e) =>
                     e.currentTarget.play()
                   }

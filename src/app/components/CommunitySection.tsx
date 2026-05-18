@@ -15,7 +15,7 @@ export default function CommunitySection() {
       title: 'Étudiants',
       count: '3000+',
       description: 'Jeunes formés',
-      image: images.image8,
+      image: images.form_robotique_6,
       color: 'from-[#2563EB] to-blue-600',
     },
     {
@@ -23,7 +23,7 @@ export default function CommunitySection() {
       title: 'Investisseurs',
       count: '15+',
       description: 'Fonds & Angels',
-      image: 'https://images.unsplash.com/photo-1742339879400-04cae8a582a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxhZnJpY2FuJTIwaW5ub3ZhdGlvbiUyMHRlY2hub2xvZ3klMjBzdGFydHVwfGVufDF8fHx8MTc3NzQxMjE1NXww&ixlib=rb-4.1.0&q=80&w=1080',
+      image: images.visite_kanarimagik2,
       color: 'from-purple-600 to-pink-600',
     },
     {

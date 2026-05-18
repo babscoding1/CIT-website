@@ -1,4 +1,5 @@
 import { Calendar, MapPin, Users, Clock } from 'lucide-react';
+import { images } from '../../assets/images';
 
 export default function EventHighlight() {
   return (
@@ -14,20 +15,20 @@ export default function EventHighlight() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-            <span className="text-[#16A34A]">Dernière édition</span>
+            <span className="text-[#16A34A]">Prochaine édition</span>
           </div>
           <h2 className="text-4xl font-bold mb-4">
-            CIT 2025 - Construire un futur intelligent
+            CIT 2026 - 5 ans déjà, d'innovations, de réseautages, d'inspirations...
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            La 4ème édition s'est tenue du 4 au 6 décembre 2025 sur le thème "Collaboration entre l'homme et la machine"
+            RV en décembre 2026 à Ziguinchor pour la 5 ème édition avec pleins de surprises et de nouveautés en Casamance.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Event details card */}
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-            <h3 className="text-2xl font-bold mb-6">Édition 2025</h3>
+            <h3 className="text-2xl font-bold mb-6">Édition 2026</h3>
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-[#16A34A] rounded-lg flex items-center justify-center flex-shrink-0">
@@ -35,7 +36,7 @@ export default function EventHighlight() {
                 </div>
                 <div>
                   <div className="font-semibold">Dates</div>
-                  <div className="text-gray-300">4-6 Décembre 2025</div>
+                  <div className="text-gray-300">4-5 Décembre 2026</div>
                 </div>
               </div>
 
@@ -45,7 +46,7 @@ export default function EventHighlight() {
                 </div>
                 <div>
                   <div className="font-semibold">Lieu</div>
-                  <div className="text-gray-300">Ziguinchor, Sénégal</div>
+                  <div className="text-gray-300">Centre Culturel, Ziguinchor, Sénégal</div>
                 </div>
               </div>
 
@@ -64,8 +65,8 @@ export default function EventHighlight() {
                   <Clock size={24} />
                 </div>
                 <div>
-                  <div className="font-semibold">Prochaine édition</div>
-                  <div className="text-gray-300">4 et 5 Décembre 2026</div>
+                  <div className="font-semibold">Casamance Innovation Tech</div>
+                  <div className="text-gray-300">Osons l'innovation en Casamance</div>
                 </div>
               </div>
             </div>
@@ -81,39 +82,12 @@ export default function EventHighlight() {
           </div>
 
           {/* Historical editions */}
-          <div className="space-y-4">
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[#16A34A] font-semibold">4ème édition</span>
-                <span className="text-sm text-gray-300">4-6 Déc 2025</span>
-              </div>
-              <h4 className="font-bold mb-2">Construire un futur intelligent</h4>
-              <p className="text-sm text-gray-300">
-                Collaboration entre l'homme et la machine, IA et développement territorial
-              </p>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-[#2563EB] font-semibold">1ère édition</span>
-                <span className="text-sm text-gray-300">8-10 Déc 2022</span>
-              </div>
-              <h4 className="font-bold mb-2">Investir dans le numérique</h4>
-              <p className="text-sm text-gray-300">
-                Lancement de CIT, création de l'écosystème innovation à Ziguinchor
-              </p>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-purple-500 font-semibold">Partenariat</span>
-                <span className="text-sm text-gray-300">Innov'Zig</span>
-              </div>
-              <h4 className="font-bold mb-2">Université Assane Seck</h4>
-              <p className="text-sm text-gray-300">
-                Incubateur et formations en AgriTech pour les jeunes entrepreneurs
-              </p>
-            </div>
+          <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+            <img
+              src= {images.mascotte}
+              alt="Mascotte CIT"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>

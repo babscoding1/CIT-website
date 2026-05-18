@@ -23,7 +23,7 @@ export default function App() {
       <EventHighlight />
       <CommunitySection />
       <StartupRegistration />
-      <InnovationSection />
+      {/* <InnovationSection /> */}
       <MediaSection />
       <NewsSection />
       <PartnersSection />

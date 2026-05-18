@@ -59,15 +59,21 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-300">
               <li className="flex items-center space-x-2">
                 <MapPin size={16} className="text-[#16A34A]" />
-                <span>Ziguinchor, Sénégal</span>
+                <span>
+                  <a href="https://maps.google.com/?q=Centre+Culturel+Régional,+Ziguinchor,+Sénégal" target="_blank" rel="noopener noreferrer">
+                    Centre Culturel Régional, Ziguinchor, Sénégal
+                  </a>
+                </span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail size={16} className="text-[#16A34A]" />
-                <span>contactcasatech@gmail.com</span>
+                <span>
+                  <a href="mailto:contactcasatech@gmail.com">contactcasatech@gmail.com</a>
+                </span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone size={16} className="text-[#16A34A]" />
-                <span>+221 XX XXX XX XX</span>
+                <span><a href="tel:+221709663939">+221 70 966 39 39</a></span>
               </li>
             </ul>
             <div className="flex space-x-3 mt-4">

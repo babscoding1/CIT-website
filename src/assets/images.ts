@@ -1,4 +1,5 @@
-import logo from "../imports/logo.jpeg";
+import logo_5_ans from "../imports/logo.jpeg";
+import logo from "../imports/logo.jpg";
 import mascotte from "../imports/mascotte.jpeg";
 import image1 from "../imports/1.jpeg";
 import image2 from "../imports/2.jpeg";
@@ -101,6 +102,20 @@ import form_robotique_6 from "../imports/Edition 4/Formation Robotique/6.jpg"
 import form_robotique_7 from "../imports/Edition 4/Formation Robotique/7.jpg"
 import form_robotique_8 from "../imports/Edition 4/Formation Robotique/8.jpg"
 import form_robotique_9 from "../imports/Edition 4/Formation Robotique/9.jpg"
+//Série de dessins animés éducatifs
+import serie_dessins_animes_educatifs1 from "../imports/Edition 4/Série de dessins animés éducatifs/1.jpg"
+import serie_dessins_animes_educatifs2 from "../imports/Edition 4/Série de dessins animés éducatifs/2.jpg"
+import serie_dessins_animes_educatifs3 from "../imports/Edition 4/Série de dessins animés éducatifs/3.jpg"
+import serie_dessins_animes_educatifs4 from "../imports/Edition 4/Série de dessins animés éducatifs/4.jpg"
+import serie_dessins_animes_educatifs5 from "../imports/Edition 4/Série de dessins animés éducatifs/5.jpg" 
+import serie_dessins_animes_educatifs6 from "../imports/Edition 4/Série de dessins animés éducatifs/6.jpg"
+import serie_dessins_animes_educatifs7 from "../imports/Edition 4/Série de dessins animés éducatifs/7.jpg"
+import serie_dessins_animes_educatifs8 from "../imports/Edition 4/Série de dessins animés éducatifs/8.jpg"
+import serie_dessins_animes_educatifs9 from "../imports/Edition 4/Série de dessins animés éducatifs/9.jpg"
+import serie_dessins_animes_educatifs10 from "../imports/Edition 4/Série de dessins animés éducatifs/10.jpg"
+import serie_dessins_animes_educatifs11 from "../imports/Edition 4/Série de dessins animés éducatifs/11.jpg"
+import serie_dessins_animes_educatifs12 from "../imports/Edition 4/Série de dessins animés éducatifs/12.jpg"
+import serie_dessins_animes_educatifs13 from "../imports/Edition 4/Série de dessins animés éducatifs/13.jpg"
 //Formation leadership
 import form_leadership_1 from "../imports/Edition 4/Formation leadership/1.jpg"
 import form_leadership_2 from "../imports/Edition 4/Formation leadership/2.jpg"
@@ -113,10 +128,69 @@ import rencontre_sg_conseil_dept_zig1 from "../imports/Edition 4/Rencontre avec 
 import rencontre_sg_conseil_dept_zig2 from "../imports/Edition 4/Rencontre avec M.Upa kajor MENDY secrétaire général du conseil départemental de Ziguinchor/2.jpg"
 import rencontre_sg_conseil_dept_zig3 from "../imports/Edition 4/Rencontre avec M.Upa kajor MENDY secrétaire général du conseil départemental de Ziguinchor/3.jpg"
 import rencontre_sg_conseil_dept_zig4 from "../imports/Edition 4/Rencontre avec M.Upa kajor MENDY secrétaire général du conseil départemental de Ziguinchor/4.jpg"
+//image partenaire 3e editions
+import images_part_3e_ed from "../imports/Edition 3/Partenaires/1.jpg";
+//jour 3 edition 3
+import jour3_edition3_1 from "../imports/Edition 3/Day 3/1.jpg"
+import jour3_edition3_2 from "../imports/Edition 3/Day 3/2.jpg"
+import jour3_edition3_3 from "../imports/Edition 3/Day 3/3.jpg"
+import jour3_edition3_4 from "../imports/Edition 3/Day 3/4.jpg"
+//jour 2 edition 3
+import jour2_edition3_1 from "../imports/Edition 3/Day 2/1.jpg"
+import jour2_edition3_2 from "../imports/Edition 3/Day 2/2.jpg"
+import jour2_edition3_3 from "../imports/Edition 3/Day 2/3.jpg"
+import jour2_edition3_4 from "../imports/Edition 3/Day 2/4.jpg"
+import jour2_edition3_5 from "../imports/Edition 3/Day 2/5.jpg"
+//jour 1 edition 3
+import jour1_edition3_1 from "../imports/Edition 3/Day 1/1.jpg"
+import jour1_edition3_2 from "../imports/Edition 3/Day 1/2.jpg"
+import jour1_edition3_3 from "../imports/Edition 3/Day 1/3.jpg"
+import jour1_edition3_4 from "../imports/Edition 3/Day 1/4.jpg"
+import jour1_edition3_5 from "../imports/Edition 3/Day 1/5.jpg"
+import jour1_edition3_6 from "../imports/Edition 3/Day 1/6.jpg"
+import jour1_edition3_7 from "../imports/Edition 3/Day 1/7.jpg"
+//visite KANARIMAGIK
+import visite_kanarimagik1 from "../imports/Edition 3/Visite KANARIMAGIK/1.jpg"
+import visite_kanarimagik2 from "../imports/Edition 3/Visite KANARIMAGIK/2.jpg"
+import visite_kanarimagik3 from "../imports/Edition 3/Visite KANARIMAGIK/3.jpg"
+//jour 3 edition 2
+import jour3_edition2_1 from "../imports/Edition 2/Day 3/1.jpg"
+import jour3_edition2_2 from "../imports/Edition 2/Day 3/2.jpg"
+import jour3_edition2_3 from "../imports/Edition 2/Day 3/3.jpg"
+import jour3_edition2_4 from "../imports/Edition 2/Day 3/4.jpg"
+import jour3_edition2_5 from "../imports/Edition 2/Day 3/5.jpg"
+import jour3_edition2_6 from "../imports/Edition 2/Day 3/6.jpg"
+import jour3_edition2_7 from "../imports/Edition 2/Day 3/7.jpg"
+import jour3_edition2_8 from "../imports/Edition 2/Day 3/8.jpg"
+import jour3_edition2_9 from "../imports/Edition 2/Day 3/9.jpg"
+import jour3_edition2_10 from "../imports/Edition 2/Day 3/10.jpg"
+import jour3_edition2_11 from "../imports/Edition 2/Day 3/11.jpg"
+import jour3_edition2_12 from "../imports/Edition 2/Day 3/12.jpg"
+//jour 2 edition 2
+import jour2_edition2_1 from "../imports/Edition 2/Day 2/1.jpg"
+import jour2_edition2_2 from "../imports/Edition 2/Day 2/2.jpg"
+import jour2_edition2_3 from "../imports/Edition 2/Day 2/3.jpg"
+import jour2_edition2_4 from "../imports/Edition 2/Day 2/4.jpg"
+import jour2_edition2_5 from "../imports/Edition 2/Day 2/5.jpg"
+import jour2_edition2_6 from "../imports/Edition 2/Day 2/6.jpg"
+import jour2_edition2_7 from "../imports/Edition 2/Day 2/7.jpg"
+import jour2_edition2_8 from "../imports/Edition 2/Day 2/8.jpg"
+import jour2_edition2_9 from "../imports/Edition 2/Day 2/9.jpg"
+//jour 1 edition 2
+import jour1_edition2_1 from "../imports/Edition 2/Day 1/1.jpg"
+import jour1_edition2_2 from "../imports/Edition 2/Day 1/2.jpg"
+import jour1_edition2_3 from "../imports/Edition 2/Day 1/3.jpg"
+import jour1_edition2_4 from "../imports/Edition 2/Day 1/4.jpg"
+import jour1_edition2_5 from "../imports/Edition 2/Day 1/5.jpg"
+import jour1_edition2_6 from "../imports/Edition 2/Day 1/6.jpg"
+import jour1_edition2_7 from "../imports/Edition 2/Day 1/7.jpg"
+import jour1_edition2_8 from "../imports/Edition 2/Day 1/8.jpg"
+import jour1_edition2_9 from "../imports/Edition 2/Day 1/9.jpg"
 
 
 export const images = {
   logo,
+  logo_5_ans,
   mascotte,
     image1,
     image2,
@@ -215,6 +289,20 @@ export const images = {
     form_robotique_7,
     form_robotique_8,
     form_robotique_9,
+    //Série de dessins animés éducatifs
+    serie_dessins_animes_educatifs1,
+    serie_dessins_animes_educatifs2,
+    serie_dessins_animes_educatifs3, 
+    serie_dessins_animes_educatifs4,
+    serie_dessins_animes_educatifs5,
+    serie_dessins_animes_educatifs6,
+    serie_dessins_animes_educatifs7,
+    serie_dessins_animes_educatifs8,
+    serie_dessins_animes_educatifs9,
+    serie_dessins_animes_educatifs10,
+    serie_dessins_animes_educatifs11,
+    serie_dessins_animes_educatifs12,
+    serie_dessins_animes_educatifs13,
     //Formation leadership
     form_leadership_1,
     form_leadership_2,
@@ -226,6 +314,63 @@ export const images = {
     rencontre_sg_conseil_dept_zig1,
     rencontre_sg_conseil_dept_zig2,
     rencontre_sg_conseil_dept_zig3,
-    rencontre_sg_conseil_dept_zig4
-
+    rencontre_sg_conseil_dept_zig4,
+    //image partenaire 3e editions
+    images_part_3e_ed,
+    //jour 3 edition 3
+    jour3_edition3_1,
+    jour3_edition3_2,
+    jour3_edition3_3,
+    jour3_edition3_4,
+    //jour 2 edition 3
+    jour2_edition3_1,
+    jour2_edition3_2,
+    jour2_edition3_3,
+    jour2_edition3_4, 
+    jour2_edition3_5,
+    //jour 1 edition 3
+    jour1_edition3_1,
+    jour1_edition3_2,
+    jour1_edition3_3,
+    jour1_edition3_4,
+    jour1_edition3_5,
+    jour1_edition3_6,
+    jour1_edition3_7,
+    //visite KANARIMAGIK
+    visite_kanarimagik1,
+    visite_kanarimagik2,
+    visite_kanarimagik3,
+    //jour 3 edition 2
+    jour3_edition2_1,
+    jour3_edition2_2,
+    jour3_edition2_3,
+    jour3_edition2_4,
+    jour3_edition2_5,
+    jour3_edition2_6,
+    jour3_edition2_7,
+    jour3_edition2_8,
+    jour3_edition2_9,
+    jour3_edition2_10,
+    jour3_edition2_11,
+    jour3_edition2_12,
+    //jour 2 edition 2
+    jour2_edition2_1,
+    jour2_edition2_2,
+    jour2_edition2_3,
+    jour2_edition2_4,
+    jour2_edition2_5,
+    jour2_edition2_6,
+    jour2_edition2_7,
+    jour2_edition2_8,
+    jour2_edition2_9,
+    //jour 1 edition 2
+    jour1_edition2_1,
+    jour1_edition2_2,
+    jour1_edition2_3,
+    jour1_edition2_4,
+    jour1_edition2_5,
+    jour1_edition2_6,
+    jour1_edition2_7,
+    jour1_edition2_8,
+    jour1_edition2_9,
 };
