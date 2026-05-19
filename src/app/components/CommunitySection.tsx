@@ -12,7 +12,7 @@ export default function CommunitySection() {
     },
     {
       icon: GraduationCap,
-      title: 'Étudiants',
+      title: 'Jeunes formés',
       count: '3000+',
       description: 'Jeunes formés',
       image: images.form_robotique_6,

@@ -24,6 +24,7 @@ export default function PartnersSection() {
     { name: 'Partner 16', logo: images.partenaire16 },
     { name: 'Partner 17', logo: images.partenaire17 },
     { name: 'Partner 18', logo: images.partenaire18 },
+    { name: 'Partner 19', logo: images.partenaire19 },
   ];
 
   return (

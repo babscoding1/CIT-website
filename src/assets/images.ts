@@ -38,11 +38,12 @@ import partenaire15 from "../imports/partenaires/Agrosotech.png";
 import partenaire16 from "../imports/partenaires/Enactus.png";
 import partenaire17 from "../imports/partenaires/ERASTUS.png";
 import partenaire18 from "../imports/partenaires/vaillant ames.png";
-//image newsletters
-import img_newsletter_janvier_2025 from "../imports/NewsLetters/image Newsletter Erastus N°1 Janvier 2025 .png"
-import img_newsletter_fevrier_mars_2025 from "../imports/NewsLetters/image Newsletter Erastus N°2 Fevrier-Mars 2025.png"
-import img_newsletter_avril_mai_juin_2025 from "../imports/NewsLetters/image Newsletter Erastus N°3 Avril-Mai-Juin 2025 .png"
-import img_newsletter_juillet_2025 from "../imports/NewsLetters/image Newsletter Erastus N°4 Juillet - Septembre 2025.png"
+import partenaire19 from "../imports/partenaires/xarala.jpg";
+//images TDR et rapports
+import img_TDR_5em_ed from "../imports/TDR et Rapports/TDR 5em ed.png"
+import img_rapport_ed_3 from "../imports/TDR et Rapports/3em ed.png"
+import img_rapport_ed_2 from "../imports/TDR et Rapports/2em ed.png"
+import img_rapport_ed_1 from "../imports/TDR et Rapports/1er ed.png"
 //image mascotte
 import mascotte1 from "../imports/Mascotte/1.jpg"
 //Panel 2
@@ -63,7 +64,7 @@ import hackaton2 from "../imports/Edition 4/Hackaton/2.jpg"
 import hackaton3 from "../imports/Edition 4/Hackaton/3.jpg"
 import hackaton4 from "../imports/Edition 4/Hackaton/4.jpg"
 import hackaton5 from "../imports/Edition 4/Hackaton/5.jpg"
-//Competitio robotique
+//Competition robotique
 import compet_robotique1 from "../imports/Edition 4/Compétition Robotique/1.jpg"
 import compet_robotique2 from "../imports/Edition 4/Compétition Robotique/2.jpg"
 import compet_robotique3 from "../imports/Edition 4/Compétition Robotique/3.jpg"
@@ -228,11 +229,14 @@ export const images = {
     partenaire16,
     partenaire17,
     partenaire18,
+    partenaire19,
     osiris,
-    img_newsletter_janvier_2025,
-    img_newsletter_fevrier_mars_2025,
-    img_newsletter_avril_mai_juin_2025,
-    img_newsletter_juillet_2025,
+    //images tdr et rapports
+    img_TDR_5em_ed,
+    img_rapport_ed_1,
+    img_rapport_ed_2,
+    img_rapport_ed_3,
+    //images
     mascotte1,
     panel2_1,
     panel2_2,

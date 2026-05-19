@@ -1,11 +1,10 @@
-import newsletter_janvier_2025 from "../imports/NewsLetters/Newsletter Erastus N°1 Janvier 2025 .pdf"
-import newsletter_fevrier_mars_2025 from "../imports/NewsLetters/Newsletter Erastus N°2 Fevrier-Mars 2025.pdf"
-import newsletter_avril_mai_juin_2025 from "../imports/NewsLetters/Newsletter Erastus N°3 Avril-Mai-Juin 2025 .pdf"
-import newsletter_juillet_2025 from "../imports/NewsLetters/Newsletter Erastus N°4 Juillet - Septembre 2025.pdf"
-
+import rapport_1ere_edition from '../imports/TDR et Rapports/CIT Rapport 2022.pdf';
+import rapport_2eme_edition from '../imports/TDR et Rapports/Rapport CIT 2023.pdf';
+import rapport_3eme_edition from '../imports/TDR et Rapports/Rapport CIT edition 3.pdf';
+import tdr_5eme_edition from '../imports/TDR et Rapports/TDR_Casamance_Innovation_Tech_5eme_Edition.pdf';
 export const pdf ={
-    newsletter_janvier_2025,
-    newsletter_fevrier_mars_2025,
-    newsletter_avril_mai_juin_2025,
-    newsletter_juillet_2025,
+    rapport_1ere_edition,
+    rapport_2eme_edition,
+    rapport_3eme_edition,
+    tdr_5eme_edition,
 }

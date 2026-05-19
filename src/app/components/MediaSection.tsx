@@ -969,41 +969,41 @@ export default function MediaSection() {
     {
       id: 1,
 
-      title: 'Newsletter Janvier 2025',
+      title: 'TDR 5eme Edition',
 
-      pdf: pdf.newsletter_janvier_2025,
+      pdf: pdf.tdr_5eme_edition,
 
-      cover: images.img_newsletter_janvier_2025
+      cover: images.img_TDR_5em_ed
     },
 
     {
       id: 2,
 
-      title: 'Newsletter Février - Mars 2025',
+      title: 'Rapport 3eme Edition',
 
-      pdf: pdf.newsletter_fevrier_mars_2025,
+      pdf: pdf.rapport_3eme_edition,
 
-      cover: images.img_newsletter_fevrier_mars_2025
+      cover: images.img_rapport_ed_3
     },
 
     {
       id: 3,
 
-      title: 'Newsletter Avril - Mai - Juin 2025',
+      title: 'Rapport 2eme Edition',
 
-      pdf: pdf.newsletter_avril_mai_juin_2025,
+      pdf: pdf.rapport_2eme_edition,
 
-      cover: images.img_newsletter_avril_mai_juin_2025
+      cover: images.img_rapport_ed_2
     },
 
     {
       id: 4,
 
-      title: 'Newsletter Juillet 2025',
+      title: 'Rapport 1er Edition',
 
-      pdf: pdf.newsletter_juillet_2025,
+      pdf: pdf.rapport_1ere_edition,
 
-      cover: images.img_newsletter_juillet_2025
+      cover: images.img_rapport_ed_1
     }
   ];
 
@@ -1123,7 +1123,7 @@ export default function MediaSection() {
                   : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
-              Newsletters
+              TDR et Rapports
             </button>
           </div>
         </div>
@@ -1177,7 +1177,7 @@ export default function MediaSection() {
         {/* VIDEOS */}
 
         {selectedTab === 'videos' && (
-          <div className="flex gap-6 overflow-x-auto pb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {videos.map((vid) => (
               <div
                 key={vid.id}

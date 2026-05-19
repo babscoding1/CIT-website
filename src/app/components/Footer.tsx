@@ -1,4 +1,4 @@
-import { Facebook, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Facebook, Linkedin, Youtube, Mail, MapPin, Phone } from 'lucide-react';
 import { images } from '../../assets/images';
 export default function Footer() {
   return (
@@ -92,6 +92,14 @@ export default function Footer() {
                 className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#2563EB] transition-colors"
               >
                 <Linkedin size={18} />
+              </a>
+              <a
+                href="https://www.youtube.com/@CasamanceTechTV"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#16A34A] transition-colors"
+              >
+                <Youtube size={18} />
               </a>
             </div>
           </div>
