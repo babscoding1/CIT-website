@@ -810,7 +810,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
 
       edition: '5ème édition',
 
-      date: '04-06 Décembre 2026',
+      date: '04-05 Décembre 2026',
 
       description:`L'innovation la plus durable est celle qui répond aux besoins de nos communautés.
 La 5ᵉ édition de Casamance Innovation Tech réunira entrepreneurs, startups, étudiants, chercheurs, collectivités territoriales, entreprises, porteurs de projets et passionnés du numérique autour d'un objectif commun : faire de la technologie un levier de développement local. Au programme : 💡 Conférences et panels d'experts 🚀 Exposition de startups et innovations locales 🤝 Rencontres B2B et réseautage 🛠️ Ateliers pratiques et démonstrations technologiques 🌱 Innovations en agritech, éducation, santé, environnement et entrepreneuriat 🏆 Pitch de projets innovants Parce que chaque territoire possède ses défis, ses talents et ses opportunités, cette édition mettra en lumière des solutions technologiques conçues à partir de nos réalités, pour construire un développement inclusif et durable. 📍 Rendez-vous les 04 et 05 décembre 2026 pour deux journées d'inspiration, d'échanges et d'innovation au cœur de la Casamance. 🔗 Vous êtes une startup, une entreprise, une institution, un partenaire ou un innovateur ? Rejoignez cette grande célébration de l'innovation territoriale et participez à la construction du futur de nos territoires. 📢 Ensemble, innovons là où tout commence : sur nos territoires !`,
