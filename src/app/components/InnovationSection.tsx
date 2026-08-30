@@ -1,3 +1,6 @@
+// Composant: InnovationSection
+// Description: Liste les domaines d'innovation (IA, AgriTech, FinTech...).
+// Remarque: cartes thématiques pour expliquer les axes du salon.
 import { Brain, Sprout, Coins, Smartphone, Zap, Globe } from 'lucide-react';
 
 export default function InnovationSection() {

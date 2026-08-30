@@ -1,3 +1,6 @@
+// Composant: AboutPreview
+// Description: Aperçu « À propos » utilisé sur la page d'accueil.
+// Remarque: commentaires simples pour développeurs débutants.
 import { Target, Eye, Heart } from 'lucide-react';
 import { images } from '../../assets/images';
 

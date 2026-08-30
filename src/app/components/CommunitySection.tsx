@@ -1,3 +1,6 @@
+// Composant: CommunitySection
+// Description: Présente la communauté (startups, jeunes, partenaires) avec des cartes.
+// Remarque: commentaires simples pour développeurs débutants.
 import { Building, Rocket, Briefcase, GraduationCap } from 'lucide-react';
 import { images } from '../../assets/images';
 export default function CommunitySection() {

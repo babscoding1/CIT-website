@@ -1,3 +1,6 @@
+// Composant: ContactSection
+// Description: Formulaire de contact et informations (adresse, email, téléphone).
+// Remarque: gère l'état du formulaire et l'envoi via fetch.
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { useState } from 'react';
 

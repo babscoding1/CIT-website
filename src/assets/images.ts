@@ -39,6 +39,8 @@ import partenaire16 from "../imports/partenaires/Enactus.png";
 import partenaire17 from "../imports/partenaires/ERASTUS.png";
 import partenaire18 from "../imports/partenaires/vaillant ames.png";
 import partenaire19 from "../imports/partenaires/xarala.jpg";
+import partenaire20 from "../imports/partenaires/gainde2000.png";
+import partenaire21 from "../imports/partenaires/senegel.png";
 //images TDR et rapports
 import img_TDR_5em_ed from "../imports/TDR et Rapports/TDR 5em ed.png"
 import img_rapport_ed_3 from "../imports/TDR et Rapports/3em ed.png"
@@ -187,7 +189,11 @@ import jour1_edition2_6 from "../imports/Edition 2/Day 1/6.jpg"
 import jour1_edition2_7 from "../imports/Edition 2/Day 1/7.jpg"
 import jour1_edition2_8 from "../imports/Edition 2/Day 1/8.jpg"
 import jour1_edition2_9 from "../imports/Edition 2/Day 1/9.jpg"
-
+//Edition 5
+import Webinaire from "../imports/Edition 5/1.jfif"
+import candidature from "../imports/Edition 5/2.jfif"
+import part_ed5_1 from "../imports/Edition 5/3.jfif"
+import part_ed5_2 from "../imports/Edition 5/4.jfif"
 
 export const images = {
   logo,
@@ -230,6 +236,8 @@ export const images = {
     partenaire17,
     partenaire18,
     partenaire19,
+    partenaire20,
+    partenaire21,
     osiris,
     //images tdr et rapports
     img_TDR_5em_ed,
@@ -377,4 +385,9 @@ export const images = {
     jour1_edition2_7,
     jour1_edition2_8,
     jour1_edition2_9,
+    //Edition 5
+    Webinaire,
+    candidature,
+    part_ed5_1,
+    part_ed5_2,
 };

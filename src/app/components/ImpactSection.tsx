@@ -1,3 +1,6 @@
+// Composant: ImpactSection
+// Description: Présente des statistiques clés (participants, startups, éditions, partenaires).
+// Remarque: utilisé pour montrer l'impact du projet.
 import { Users, Building2, Calendar, Award } from 'lucide-react';
 
 export default function ImpactSection() {

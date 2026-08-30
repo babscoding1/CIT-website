@@ -1,3 +1,6 @@
+// Composant: Footer
+// Description: Pied de page avec liens utiles et contacts.
+// Remarque: informations statiques et icônes de réseaux.
 import { Facebook, Linkedin, Youtube, Mail, MapPin, Phone } from 'lucide-react';
 import { images } from '../../assets/images';
 export default function Footer() {

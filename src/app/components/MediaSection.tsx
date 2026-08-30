@@ -11,6 +11,8 @@ import { images } from '../../assets/images';
 import { video } from '../../assets/video';
 import { pdf } from '../../assets/pdf';
 
+// Types simples pour décrire les données utilisées dans cette section.
+// Un élément média peut être une image ou une vidéo.
 type MediaItem = {
   type: 'image' | 'video';
   url: string;
@@ -28,6 +30,8 @@ type NewsletterItem = {
 };
 
 export default function MediaSection() {
+  // Etat local du composant : onglet actif, événement sélectionné,
+  // index de l'image affichée et média actif.
   const [selectedTab, setSelectedTab] = useState<
     'photos' | 'videos' | 'newsletters'
   >('photos');
@@ -44,7 +48,7 @@ export default function MediaSection() {
   // =========================
   // EVENTS
   // =========================
-
+  // Liste des événements qui seront affichés dans la galerie photo.
   const events = [
     {
       id: 1,
@@ -53,18 +57,32 @@ export default function MediaSection() {
 
       edition: '5ème édition',
 
-      date: '-',
+      date: '04 - 05 Décembre',
 
-      description: `DjignaBo’T est bien plus qu’un simple personnage visuel : c’est la mascotte officielle de Casamance Innovation Tech, pensée pour incarner l’innovation, la créativité et l’avenir technologique de la Casamance. 🔷 Signification du nom: Le nom DjignaBo’T combine des références culturelles et technologiques : “Djigna” évoque l’intelligence, la connaissance ou la sagesse dans un contexte local. “Bo’T” fait penser à “bot” (robot), symbole de l’intelligence artificielle et de l’automatisation. 👉 Ensemble, DjignaBo’T représente une intelligence locale augmentée par la technologie. 🤖 Rôle de DjignaBo’T: En tant que mascotte, DjignaBo’T joue plusieurs rôles clés : Ambassadeur de l’innovation : il incarne les projets technologiques portés par Casamance Innovation Tech. Symbole éducatif : il rend la technologie accessible, notamment aux jeunes et aux entrepreneurs.Guide digital : il peut être utilisé dans des supports (affiches, applications, formations) pour accompagner les utilisateurs.`,
+      description: `🚀 CASAMANCE INNOVATION TECH – 5ᵉ ÉDITION
+Du 04 au 05 décembre 2026 à Ziguinchor, La 5ᵉ édition de Casamance Innovation Tech se prépare ! 🌍💡 Placée sous le thème « Tech et territoires : innover à partir de nos réalités », cette nouvelle édition sera un grand rendez-vous dédié à l’innovation, au numérique, à l’entrepreneuriat et aux solutions technologiques adaptées aux réalités de nos territoires.
+Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat ou l'organisation d'événements ? Rejoignez l'équipe des volontaires de la 5ᵉ édition de Casamance Innovation Tech et contribuez à faire de cet événement un véritable succès ! 🔗 Inscrivez-vous dès maintenant via le formulaire : https://lnkd.in/dksK3VJK`,
 
       year: '2026',
 
-      cover: images.mascotte,
+      cover: images.Webinaire,
 
       images: [
         {
+          url: images.Webinaire
+        },
+        {
+          url: images.candidature
+        },
+        {
+          url: images.part_ed5_1
+        },
+        {
+          url: images.part_ed5_2
+        },
+        {
           url: images.mascotte1
-        }
+        },
       ]
     },
 
@@ -782,7 +800,7 @@ export default function MediaSection() {
   // =========================
   // VIDEOS
   // =========================
-
+  // Liste des vidéos disponibles dans la médiathèque.
   const videos = [
     
     {
@@ -1012,6 +1030,7 @@ export default function MediaSection() {
   // =========================
 
   const nextImage = () => {
+    // Passe à l'image suivante dans la galerie.
     setCurrentIndex((prev) =>
       prev === selectedEvent.images.length - 1
         ? 0
@@ -1020,6 +1039,7 @@ export default function MediaSection() {
   };
 
   const prevImage = () => {
+    // Reculer vers l'image précédente dans la galerie.
     setCurrentIndex((prev) =>
       prev === 0
         ? selectedEvent.images.length - 1
@@ -1030,6 +1050,8 @@ export default function MediaSection() {
   // =========================
   // KEYBOARD NAVIGATION
   // =========================
+  // Permet de fermer les modales et de naviguer
+  // avec les flèches du clavier.
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -1081,14 +1103,14 @@ export default function MediaSection() {
           </h2>
 
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Découvrez les photos, vidéos et newsletters
-            retraçant les moments forts du Salon Casamance
+            Découvrez les photos, vidéos, TDR et rapports
+            retraçant les moments forts des Salons de Casamance
             Innovation Tech.
           </p>
         </div>
 
         {/* TABS */}
-
+        {/* Boutons pour changer entre les photos, vidéos et documents. */}
         <div className="flex justify-center mb-12">
           <div className="flex bg-white shadow-lg rounded-xl p-1 border">
             <button
@@ -1129,7 +1151,7 @@ export default function MediaSection() {
         </div>
 
         {/* PHOTOS */}
-
+        {/* Affiche les vignettes des événements quand l'onglet 'Photos' est actif. */}
         {selectedTab === 'photos' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {events.map((event) => (
@@ -1175,7 +1197,7 @@ export default function MediaSection() {
         )}
 
         {/* VIDEOS */}
-
+        {/* Affiche les cartes vidéo quand l'onglet 'Vidéos' est actif. */}
         {selectedTab === 'videos' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {videos.map((vid) => (
@@ -1193,8 +1215,6 @@ export default function MediaSection() {
                   })
                 }
               >
-
-
                 <video
                   src={vid.videoUrl}
                   muted
@@ -1247,7 +1267,7 @@ export default function MediaSection() {
         )}
 
         {/* NEWSLETTERS */}
-
+        {/* Affiche les fichiers PDF / rapports quand l'onglet 'TDR et Rapports' est actif. */}
         {selectedTab === 'newsletters' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {newsletters.map((newsletter) => (
@@ -1281,7 +1301,7 @@ export default function MediaSection() {
       </div>
 
       {/* EVENT MODAL */}
-
+      {/* Fenêtre qui affiche l'image sélectionnée et ses détails. */}
       {selectedEvent && (
         <div
           onClick={() => setSelectedEvent(null)}
@@ -1377,7 +1397,7 @@ export default function MediaSection() {
       )}
 
       {/* VIDEO MODAL */}
-
+      {/* Fenêtre qui lit la vidéo sélectionnée avec ses informations. */}
       {activeMedia &&
         activeMedia.type === 'video' && (
           <div

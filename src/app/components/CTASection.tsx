@@ -1,3 +1,6 @@
+// Composant: CTASection
+// Description: Section d'appel à l'action (suivre, contacter, stats rapides).
+// Remarque: simple et visuel, utilisé sur la page d'accueil.
 import { ArrowRight, Rocket } from 'lucide-react';
 
 export default function CTASection() {

@@ -1,3 +1,6 @@
+// Composant: Hero
+// Description: Bannière principale (hero) affichée en haut de la page d'accueil.
+// Remarque: grande image de fond et appels à l'action.
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { images } from '../../assets/images';
 
