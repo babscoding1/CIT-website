@@ -10,6 +10,7 @@ import christian_3ed_francais from "../imports/video-CIT/Christian Mendy 3e Edit
 import christian_3ed_wolof from "../imports/video-CIT/Christian Mendy 3e Edition Wolof.mp4";
 import presentation_3ed from "../imports/video-CIT/Presentation 3e Edition.mp4";
 import presentation_2ed from "../imports/video-CIT/Presentation 2e Edition.mp4";
+import presentation_5ed from "../imports/Edition 5/Video/Presentation.mp4";
 
 export const video = {
     sTV,
@@ -24,5 +25,6 @@ export const video = {
     christian_3ed_francais,
     christian_3ed_wolof,
     presentation_3ed,
-    presentation_2ed
+    presentation_2ed,
+    presentation_5ed,
 }

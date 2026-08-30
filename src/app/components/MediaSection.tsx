@@ -806,6 +806,22 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
     {
       id: 1,
 
+      title: 'Presentation',
+
+      edition: '5ème édition',
+
+      date: '04-06 Décembre 2026',
+
+      description:`L'innovation la plus durable est celle qui répond aux besoins de nos communautés.
+La 5ᵉ édition de Casamance Innovation Tech réunira entrepreneurs, startups, étudiants, chercheurs, collectivités territoriales, entreprises, porteurs de projets et passionnés du numérique autour d'un objectif commun : faire de la technologie un levier de développement local. Au programme : 💡 Conférences et panels d'experts 🚀 Exposition de startups et innovations locales 🤝 Rencontres B2B et réseautage 🛠️ Ateliers pratiques et démonstrations technologiques 🌱 Innovations en agritech, éducation, santé, environnement et entrepreneuriat 🏆 Pitch de projets innovants Parce que chaque territoire possède ses défis, ses talents et ses opportunités, cette édition mettra en lumière des solutions technologiques conçues à partir de nos réalités, pour construire un développement inclusif et durable. 📍 Rendez-vous les 04 et 05 décembre 2026 pour deux journées d'inspiration, d'échanges et d'innovation au cœur de la Casamance. 🔗 Vous êtes une startup, une entreprise, une institution, un partenaire ou un innovateur ? Rejoignez cette grande célébration de l'innovation territoriale et participez à la construction du futur de nos territoires. 📢 Ensemble, innovons là où tout commence : sur nos territoires !`,
+
+      videoUrl: video.presentation_5ed,
+
+      thumbnail: images.couv_vid_robtique
+    },
+    {
+      id: 2,
+
       title: 'Compétition Robotique Inter-Établissements',
 
       edition: '4ème édition',
@@ -819,7 +835,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
       thumbnail: images.couv_vid_robtique
     },
     {
-      id: 2,
+      id: 3,
 
       title: 'Hélène Agnès Diène',
 
@@ -834,7 +850,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
       thumbnail: images.couv_vid_agnes
     },
     {
-      id: 3,
+      id: 4,
 
       title: 'Gérard Dacosta',
 
@@ -848,7 +864,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
 
     },
     {
-      id: 4,
+      id: 5,
 
       title: 'Serigne Mbacké SECK',
 
@@ -862,7 +878,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
 
     },
     {
-      id: 5,
+      id: 6,
 
       title: 'Rendez-vous pour l\'edition 4',
 
@@ -876,7 +892,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
 
     },
     {
-      id: 6,
+      id: 7,
 
       title: 'Presentation en Francais: Christian Mendy',
 
@@ -890,7 +906,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
 
     },
     {
-      id: 7,
+      id: 8,
 
       title: 'Presentation en Creol: Awa Diatta',
 
@@ -904,7 +920,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
 
     },
     {
-      id: 8,
+      id: 9,
 
       title: 'Presentation en Wolof: Christian Mendy',
 
@@ -918,7 +934,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
 
     },
     {
-      id: 9,
+      id: 10,
 
       title: 'Revivez les moments de la 3eme édition',
 
@@ -932,7 +948,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
 
     },
     {
-      id: 10,
+      id: 11,
 
       title: '2ème Édition du Salon Casamance Innovation Tech',
 
@@ -947,7 +963,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
       thumbnail: images.couv_vid_sTV
     },
     {
-      id: 11,
+      id: 12,
 
       title: 'Revivez les moments de la 2ème édition',
 
@@ -962,7 +978,7 @@ Si  Vous êtes passionné(e) par l'innovation, le numérique, l'entrepreneuriat 
       thumbnail: images.couv_vid_sTV
     },
     {
-      id: 12,
+      id: 13,
 
       title:
         '1ʳᵉ Édition du Salon Casamance Innovation Tech',
