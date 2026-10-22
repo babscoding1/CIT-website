@@ -10,6 +10,7 @@ import MediaSection from './components/MediaSection';
 import NewsSection from './components/NewsSection';
 import PartnersSection from './components/PartnersSection';
 import ContactSection from './components/ContactSection';
+import CITRegistration from './components/CITRegistration';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
 
@@ -29,6 +30,7 @@ export default function App() {
       <PartnersSection />
       <ContactSection />
       <CTASection />
+      <CITRegistration />
       <Footer />
     </div>
   );

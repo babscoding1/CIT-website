@@ -1,330 +1,560 @@
 import { useState } from 'react';
-import { Rocket, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import {
+  Rocket,
+  UserRound,
+  Send,
+  CheckCircle2,
+  Loader2,
+  ArrowLeft,
+} from 'lucide-react';
+
+type RegistrationType = 'startup' | 'participant';
+
+type FormData = {
+  registrationType: RegistrationType;
+  // Startup fields
+  startupName: string;
+  sector: string;
+  founders: string;
+  stage: string;
+  website: string;
+  description: string;
+  // Shared contact fields
+  email: string;
+  phone: string;
+  // Participant fields
+  fullName: string;
+  organization: string;
+  profession: string;
+  participationCategory: string;
+};
+
+const initialFormData: FormData = {
+  registrationType: 'startup',
+  startupName: '',
+  sector: '',
+  founders: '',
+  stage: '',
+  website: '',
+  description: '',
+  email: '',
+  phone: '',
+  fullName: '',
+  organization: '',
+  profession: '',
+  participationCategory: '',
+};
+
+const sectors = [
+  'AgriTech',
+  'FinTech',
+  'EdTech',
+  'HealthTech',
+  'E-commerce',
+  'Cleantech',
+  'IoT',
+  'IA & Data',
+  'Autre',
+];
+
+const stages = [
+  'Idée / Concept',
+  'Prototype / MVP',
+  'Phase de lancement',
+  'Croissance',
+  'Expansion',
+];
+
+const professions = [
+  'Étudiant(e)',
+  'Entrepreneur(e)',
+  'Employé(e)',
+  'Chercheur / Enseignant',
+  'Investisseur',
+  'Professionnel(le) du numérique',
+  'Autre',
+];
+
+const inputClass =
+  'w-full rounded-lg border border-border bg-white px-4 py-3 text-foreground outline-none transition focus:ring-2 focus:ring-[#16A34A]';
+const labelClass = 'mb-2 block text-sm font-semibold text-foreground';
 
 export default function StartupRegistration() {
-  const [formData, setFormData] = useState({
-    startupName: '',
-    sector: '',
-    founders: '',
-    email: '',
-    phone: '',
-    description: '',
-    stage: '',
-    website: '',
-  });
-
+  const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const sectors = [
-    'AgriTech',
-    'FinTech',
-    'EdTech',
-    'HealthTech',
-    'E-commerce',
-    'Cleantech',
-    'IoT',
-    'IA & Data',
-    'Autre',
-  ];
-
-  const stages = [
-    'Idée / Concept',
-    'Prototype / MVP',
-    'Phase de lancement',
-    'Croissance',
-    'Expansion',
-  ];
+  const [submitError, setSubmitError] = useState('');
 
   const handleChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-) => {
-  let value = e.target.value;
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
+    const { name } = e.target;
+    let value = e.target.value;
 
-  if (e.target.name === 'website' && value && !value.startsWith('http')) {
-    value = 'https://' + value;
-  }
-
-  setFormData({
-    ...formData,
-    [e.target.name]: value,
-  });
-};
-
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-
-  try {
-    const response = await fetch("https://formspree.io/f/mlgzdklz", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      setIsSubmitted(true);
-      setFormData({
-        startupName: '',
-        sector: '',
-        founders: '',
-        email: '',
-        phone: '',
-        description: '',
-        stage: '',
-        website: '',
-      });
-    } else {
-      alert("Erreur lors de l'envoi. Réessayez.");
+    if (name === 'website' && value && !/^https?:\/\//i.test(value)) {
+      value = `https://${value}`;
     }
-  } catch (error) {
-    alert("Erreur réseau. Vérifiez votre connexion.");
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  };
+
+  const chooseRegistrationType = (type: RegistrationType) => {
+    setFormData((current) => ({
+      ...initialFormData,
+      registrationType: type,
+      // Keep the shared contact information if the user switches form type.
+      email: current.email,
+      phone: current.phone,
+    }));
+    setSubmitError('');
+    setIsSubmitted(false);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const payload = {
+        ...formData,
+        registrationTypeLabel:
+          formData.registrationType === 'startup'
+            ? 'Pré-inscription startup'
+            : 'Inscription participant',
+        event: 'Casamance Innovation Tech — 5e édition',
+      };
+
+      const response = await fetch('https://formspree.io/f/mlgzdklz', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("L'envoi du formulaire a échoué.");
+      }
+
+      setIsSubmitted(true);
+      setFormData(initialFormData);
+    } catch {
+      setSubmitError(
+        "L'envoi a échoué. Vérifiez votre connexion puis réessayez.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <section id="startup-registration" className="py-20 bg-gradient-to-b from-white to-slate-50">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#16A34A] to-[#2563EB] rounded-full mb-6">
+    <section
+      id="startup-registration"
+      className="bg-gradient-to-b from-white to-slate-50 py-20"
+    >
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 text-center">
+          <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#16A34A] to-[#2563EB]">
             <Rocket size={32} className="text-white" />
           </div>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
-            Pré-inscription Startups
+
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#16A34A]">
+            Casamance Innovation Tech · 5e édition
+          </p>
+          <h2 className="mb-4 text-3xl font-bold text-foreground sm:text-4xl">
+            Inscription à CIT
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Vous êtes une startup innovante ? Rejoignez la prochaine édition de CIT et présentez votre projet devant des investisseurs, partenaires et experts de l'écosystème tech africain.
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            Vous souhaitez présenter une startup innovante ou participer à
+            l’événement ? Choisissez le type d’inscription qui vous correspond.
           </p>
         </div>
 
-        {/* Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-[#16A34A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-foreground mb-2">Accès aux investisseurs</h3>
-            <p className="text-sm text-muted-foreground">Présentez votre projet devant des VCs et business angels</p>
-          </div>
+        <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <button
+            type="button"
+            onClick={() => chooseRegistrationType('startup')}
+            aria-pressed={formData.registrationType === 'startup'}
+            className={`rounded-2xl border p-6 text-left transition ${
+              formData.registrationType === 'startup'
+                ? 'border-[#16A34A] bg-green-50 shadow-md ring-2 ring-[#16A34A]/20'
+                : 'border-border bg-white hover:border-[#16A34A]/60'
+            }`}
+          >
+            <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-[#16A34A]">
+              <Rocket size={25} />
+            </span>
+            <span className="mb-2 block text-lg font-bold text-foreground">
+              Inscrire une startup
+            </span>
+            <span className="block text-sm leading-6 text-muted-foreground">
+              Présentez votre projet, votre équipe et votre solution innovante.
+            </span>
+          </button>
 
-          <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-[#2563EB]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-foreground mb-2">Networking</h3>
-            <p className="text-sm text-muted-foreground">Connectez-vous avec l'écosystème tech de la région</p>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
-            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-              </svg>
-            </div>
-            <h3 className="font-bold text-foreground mb-2">Accompagnement</h3>
-            <p className="text-sm text-muted-foreground">Bénéficiez du mentorat d'experts et formations</p>
-          </div>
+          <button
+            type="button"
+            onClick={() => chooseRegistrationType('participant')}
+            aria-pressed={formData.registrationType === 'participant'}
+            className={`rounded-2xl border p-6 text-left transition ${
+              formData.registrationType === 'participant'
+                ? 'border-[#2563EB] bg-blue-50 shadow-md ring-2 ring-[#2563EB]/20'
+                : 'border-border bg-white hover:border-[#2563EB]/60'
+            }`}
+          >
+            <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-[#2563EB]">
+              <UserRound size={25} />
+            </span>
+            <span className="mb-2 block text-lg font-bold text-foreground">
+              Inscrire un participant
+            </span>
+            <span className="block text-sm leading-6 text-muted-foreground">
+              Inscrivez-vous pour participer aux activités et rencontrer
+              l’écosystème de l’innovation.
+            </span>
+          </button>
         </div>
 
-        {/* Form */}
-        <div className="bg-white rounded-2xl shadow-xl border border-border p-8">
+        <div className="rounded-2xl border border-border bg-white p-6 shadow-xl sm:p-8">
           {isSubmitted ? (
-            <div className="text-center py-12">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
+            <div className="py-10 text-center">
+              <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
                 <CheckCircle2 size={48} className="text-[#16A34A]" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-3">
-                Pré-inscription envoyée !
+              <h3 className="mb-3 text-2xl font-bold text-foreground">
+                Demande envoyée !
               </h3>
-              <p className="text-muted-foreground mb-6">
-                Merci pour votre intérêt. Notre équipe vous contactera dans les prochains jours.
+              <p className="mx-auto mb-6 max-w-xl text-muted-foreground">
+                Merci pour votre intérêt pour Casamance Innovation Tech. Votre
+                demande a été transmise à l’équipe organisatrice. Cette
+                confirmation concerne l’envoi du formulaire, pas la validation
+                d’un paiement ni l’émission d’un badge.
               </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setFormData(initialFormData);
+                }}
+                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#16A34A] to-[#2563EB] px-6 py-3 font-semibold text-white transition hover:opacity-90"
+              >
+                <ArrowLeft size={18} />
+                Faire une autre inscription
+              </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Startup Name */}
-                <div>
-                  <label htmlFor="startupName" className="block text-sm font-semibold text-foreground mb-2">
-                    Nom de la startup <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="startupName"
-                    name="startupName"
-                    required
-                    value={formData.startupName}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
-                    placeholder="Ex: AgriConnect"
-                  />
-                </div>
-
-                {/* Sector */}
-                <div>
-                  <label htmlFor="sector" className="block text-sm font-semibold text-foreground mb-2">
-                    Secteur d'activité <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    id="sector"
-                    name="sector"
-                    required
-                    value={formData.sector}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
-                  >
-                    <option value="">Sélectionnez un secteur</option>
-                    {sectors.map((sector) => (
-                      <option key={sector} value={sector}>
-                        {sector}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Founders */}
-                <div>
-                  <label htmlFor="founders" className="block text-sm font-semibold text-foreground mb-2">
-                    Fondateur(s) <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="founders"
-                    name="founders"
-                    required
-                    value={formData.founders}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
-                    placeholder="Ex: Fatou Diallo, Amadou Sall"
-                  />
-                </div>
-
-                {/* Stage */}
-                <div>
-                  <label htmlFor="stage" className="block text-sm font-semibold text-foreground mb-2">
-                    Stade de développement <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    id="stage"
-                    name="stage"
-                    required
-                    value={formData.stage}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
-                  >
-                    <option value="">Sélectionnez un stade</option>
-                    {stages.map((stage) => (
-                      <option key={stage} value={stage}>
-                        {stage}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                    Email <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
-                    placeholder="contact@gmail.com"
-                  />
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-foreground mb-2">
-                    Téléphone <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
-                    placeholder="+221 XX XXX XX XX"
-                  />
-                </div>
-
-                {/* Website */}
-                <div className="md:col-span-2">
-                  <label htmlFor="website" className="block text-sm font-semibold text-foreground mb-2">
-                    Site web (optionnel)
-                  </label>
-                  <input
-                    type="url"
-                    id="website"
-                    name="website"
-                    value={formData.website}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all"
-                    placeholder="https://www.startup.com"
-                  />
-                </div>
-
-                {/* Description */}
-                <div className="md:col-span-2">
-                  <label htmlFor="description" className="block text-sm font-semibold text-foreground mb-2">
-                    Description du projet <span className="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    id="description"
-                    name="description"
-                    required
-                    value={formData.description}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#16A34A] transition-all resize-none"
-                    placeholder="Décrivez votre projet, la problématique que vous résolvez et votre proposition de valeur..."
-                  />
-                </div>
-              </div>
-
-              {/* Submit Button */}
-              <div className="flex items-center justify-between pt-4">
-                <p className="text-sm text-muted-foreground">
-                  <span className="text-red-500">*</span> Champs obligatoires
+            <>
+              <div className="mb-7 border-b border-border pb-5">
+                <h3 className="text-xl font-bold text-foreground">
+                  {formData.registrationType === 'startup'
+                    ? 'Pré-inscription startup'
+                    : 'Inscription participant'}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Les champs marqués d’un astérisque (*) sont obligatoires.
                 </p>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="bg-gradient-to-r from-[#16A34A] to-[#2563EB] text-white px-8 py-4 rounded-lg hover:opacity-90 transition-all flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed group"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 size={20} className="animate-spin" />
-                      <span>Envoi en cours...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Envoyer ma pré-inscription</span>
-                      <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-                    </>
-                  )}
-                </button>
               </div>
-            </form>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {formData.registrationType === 'startup' ? (
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div>
+                      <label className={labelClass} htmlFor="startupName">
+                        Nom de la startup *
+                      </label>
+                      <input
+                        className={inputClass}
+                        id="startupName"
+                        name="startupName"
+                        value={formData.startupName}
+                        onChange={handleChange}
+                        placeholder="Ex. : AgriConnect"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="sector">
+                        Secteur d’activité *
+                      </label>
+                      <select
+                        className={inputClass}
+                        id="sector"
+                        name="sector"
+                        value={formData.sector}
+                        onChange={handleChange}
+                        required
+                      >
+                        <option value="">Sélectionnez un secteur</option>
+                        {sectors.map((sector) => (
+                          <option key={sector} value={sector}>
+                            {sector}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="founders">
+                        Fondateur(s) *
+                      </label>
+                      <input
+                        className={inputClass}
+                        id="founders"
+                        name="founders"
+                        value={formData.founders}
+                        onChange={handleChange}
+                        placeholder="Nom(s) du ou des fondateurs"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="stage">
+                        Stade de développement *
+                      </label>
+                      <select
+                        className={inputClass}
+                        id="stage"
+                        name="stage"
+                        value={formData.stage}
+                        onChange={handleChange}
+                        required
+                      >
+                        <option value="">Sélectionnez un stade</option>
+                        {stages.map((stage) => (
+                          <option key={stage} value={stage}>
+                            {stage}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="email">
+                        E-mail de contact *
+                      </label>
+                      <input
+                        className={inputClass}
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="contact@startup.com"
+                        autoComplete="email"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="phone">
+                        Téléphone *
+                      </label>
+                      <input
+                        className={inputClass}
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+221 XX XXX XX XX"
+                        autoComplete="tel"
+                        required
+                      />
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label className={labelClass} htmlFor="website">
+                        Site web (facultatif)
+                      </label>
+                      <input
+                        className={inputClass}
+                        id="website"
+                        name="website"
+                        type="text"
+                        value={formData.website}
+                        onChange={handleChange}
+                        placeholder="www.mastartup.com"
+                      />
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <label className={labelClass} htmlFor="description">
+                        Description du projet *
+                      </label>
+                      <textarea
+                        className={`${inputClass} resize-y`}
+                        id="description"
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        rows={4}
+                        placeholder="Décrivez le problème traité, votre solution et sa valeur ajoutée..."
+                        required
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div>
+                      <label className={labelClass} htmlFor="fullName">
+                        Prénom et nom *
+                      </label>
+                      <input
+                        className={inputClass}
+                        id="fullName"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        placeholder="Ex. : Awa Diop"
+                        autoComplete="name"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="profession">
+                        Profil *
+                      </label>
+                      <select
+                        className={inputClass}
+                        id="profession"
+                        name="profession"
+                        value={formData.profession}
+                        onChange={handleChange}
+                        required
+                      >
+                        <option value="">Sélectionnez votre profil</option>
+                        {professions.map((profession) => (
+                          <option key={profession} value={profession}>
+                            {profession}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="email">
+                        Adresse e-mail *
+                      </label>
+                      <input
+                        className={inputClass}
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="vous@exemple.com"
+                        autoComplete="email"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="phone">
+                        Téléphone *
+                      </label>
+                      <input
+                        className={inputClass}
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+221 XX XXX XX XX"
+                        autoComplete="tel"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="organization">
+                        Organisation (facultatif)
+                      </label>
+                      <input
+                        className={inputClass}
+                        id="organization"
+                        name="organization"
+                        value={formData.organization}
+                        onChange={handleChange}
+                        placeholder="Entreprise, école, association..."
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        className={labelClass}
+                        htmlFor="participationCategory"
+                      >
+                        Catégorie de participation *
+                      </label>
+                      <select
+                        className={inputClass}
+                        id="participationCategory"
+                        name="participationCategory"
+                        value={formData.participationCategory}
+                        onChange={handleChange}
+                        required
+                      >
+                        <option value="">Sélectionnez une catégorie</option>
+                        <option value="standard">Participant</option>
+                        <option value="student">Étudiant</option>
+                        <option value="professional">Professionnel</option>
+                      </select>
+                    </div>
+                  </div>
+                )}
+
+                {submitError && (
+                  <div
+                    role="alert"
+                    className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700"
+                  >
+                    {submitError}
+                  </div>
+                )}
+
+                <div className="flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-sm text-muted-foreground">
+                    <span className="text-red-500">*</span> Champs obligatoires
+                  </p>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#16A34A] to-[#2563EB] px-7 py-4 font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 size={20} className="animate-spin" />
+                        Envoi en cours...
+                      </>
+                    ) : (
+                      <>
+                        Envoyer mon inscription
+                        <Send size={20} />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </>
           )}
         </div>
+
+        <p className="mx-auto mt-5 max-w-3xl text-center text-xs leading-5 text-muted-foreground">
+          Pour le moment, ce formulaire transmet les demandes via Formspree.
+          Le paiement réel Wave/Orange Money, la confirmation serveur, la
+          génération des badges et la vérification des QR codes nécessitent
+          une intégration backend dédiée.
+        </p>
       </div>
     </section>
   );
