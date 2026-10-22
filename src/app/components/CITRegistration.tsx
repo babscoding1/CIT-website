@@ -44,6 +44,7 @@ const EVENT = {
   name: 'Casamance Innovation Tech',
   edition: '5e Édition',
   dates: '17 – 19 Décembre 2026',
+  datesInscription: '1er Novembre - 2 Décembre',
   lieu: 'Ziguinchor, Sénégal',
   verifyBaseUrl: 'https://casamanceinnovationtech.sn/verify',
   formspreeId: 'mlgzdklz', // ← remplacez par votre ID Formspree
@@ -555,7 +556,7 @@ export default function CITRegistration() {
             Inscription officielle
           </h1>
           <p className="text-base text-slate-500">
-            {EVENT.dates} · {EVENT.lieu}
+            {EVENT.datesInscription} · {EVENT.lieu}
           </p>
         </div>
 
