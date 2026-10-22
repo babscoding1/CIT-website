@@ -54,52 +54,83 @@ const TARIFS = {
     {
       id: 'etudiant',
       label: 'Étudiant(e)',
-      price: 2000,
+      summary: 'Pour les étudiants qui souhaitent découvrir les innovations et développer leur réseau.',
+      price: 3000,
       badge: 'ÉTUDIANT',
       color: '#2563EB',
-      perks: ['Accès 3 jours', 'Kit participant', 'Certificat'],
-    },
-    {
-      id: 'standard',
-      label: 'Participant Standard',
-      price: 5000,
-      badge: 'PARTICIPANT',
-      color: '#16A34A',
-      perks: ['Accès 3 jours', 'Kit premium', 'Networking', 'Certificat'],
+      perks: ['Accès aux 2 jours', 'Kit participant', 'Certificat', 'Restauration'],
     },
     {
       id: 'professionnel',
       label: 'Professionnel',
-      price: 10000,
+      summary: 'Pour les professionnels, entrepreneurs et acteurs de l’innovation.',
+      price: 5000,
       badge: 'PRO',
       color: '#7C3AED',
-      perks: ['Accès VIP', 'Lounge pro', 'Sessions privées', 'Certificat'],
+      perks: ['Accès VIP', 'Lounge professionnel', 'Sessions privées', 'Certificat', 'Restauration'],
     },
   ],
   entreprise: [
     {
       id: 'startup',
-      label: 'Startup Exposante',
-      price: 25000,
-      badge: 'STARTUP',
+      label: 'Package Soutien Local',
+      summary: 'Une offre accessible pour valoriser les PME et startups de l’écosystème local.',
+      price: 50000,
+      badge: 'PME & STARTUPS',
       color: '#16A34A',
-      perks: ['Stand 2m²', '2 pass équipe', 'Pitch slot 5 min', 'Visibilité web'],
+      perks: [
+        'Logo en petit format sur le site et le programme officiel',
+        'Stand partagé Startup Corner de 5 à 8 m²',
+        'Présence sur le Mur des Partenaires',
+        'Participation aux sessions pitch devant investisseurs et décideurs',
+        'Présentation sur une demi-page de la brochure officielle',
+        '2 billets gratuits',
+        'Mise en avant sur les réseaux sociaux officiels',
+        'Accès aux sessions de networking',
+        'Visite touristique tout inclus pour 2 membres de l’équipe (2–3 décembre 2026)',
+      ],
     },
     {
       id: 'pme',
-      label: 'PME / Entreprise',
-      price: 75000,
-      badge: 'ENTREPRISE',
+      label: 'Package Partenaire Premium',
+      summary: 'Une visibilité renforcée pour les entreprises de taille intermédiaire.',
+      price: 500000,
+      badge: 'ENTREPRISES INTERMÉDIAIRES',
       color: '#D97706',
-      perks: ['Stand 4m²', '4 pass équipe', 'Logo sur supports', 'Interview média'],
+      perks: [
+        'Logo en taille moyenne sur les supports principaux',
+        'Stand standard de 10 à 15 m²',
+        'Logo sur les scènes secondaires',
+        'Présentation sur une page entière de la brochure officielle',
+        'Animation d’un atelier ou d’une session de groupe',
+        '1 place réservée à une table ronde',
+        'Accès privilégié à la zone networking',
+        '5 billets gratuits',
+        'Mention dans le communiqué de presse',
+        'Visite touristique tout inclus pour 5 membres de l’équipe (2–3 décembre 2026)',
+      ],
     },
     {
       id: 'partenaire',
-      label: 'Partenaire Principal',
-      price: 200000,
-      badge: 'PARTENAIRE',
+      label: 'Package Grand Partenaire',
+      summary: 'Une offre premium destinée aux grandes entreprises et multinationales.',
+      price: 1500000,
+      badge: 'GRANDES ENTREPRISES',
       color: '#0F172A',
-      perks: ['Stand premium', '10 pass', 'Co-branding', 'Keynote slot', 'VIP'],
+      perks: [
+        'Logo en grand format sur tous les supports',
+        'Logo sur le fond des scènes principales',
+        'Mention comme partenaire majeur à l’ouverture et à la clôture',
+        'Stand premium de 20 à 30 m²',
+        'Intervention en session plénière ou discours d’ouverture',
+        '2 sièges réservés aux tables rondes d’experts',
+        'Accès VIP pour le networking ciblé',
+        'Page entière et page de fin dans la brochure officielle',
+        '7 billets gratuits',
+        'Mention spéciale dans le communiqué de presse post-événement',
+        'Article sponsorisé sur le site officiel',
+        'Visite touristique tout inclus pour 7 membres de l’équipe (2–3 décembre 2026)',
+      ],
     },
   ],
 };
@@ -548,7 +579,7 @@ export default function CITRegistration() {
                 <div className="flex-1">
                   <div className="mb-1 flex items-center justify-between">
                     <span className="text-lg font-bold text-slate-800">Participant</span>
-                    <span className="text-sm font-semibold text-[#2563EB]">Dès 2 000 FCFA →</span>
+                    <span className="text-sm font-semibold text-[#2563EB]">Dès 3 000 FCFA →</span>
                   </div>
                   <p className="text-sm text-slate-500">
                     Étudiant, professionnel, entrepreneur — assistez aux conférences, ateliers et networking.
@@ -569,7 +600,7 @@ export default function CITRegistration() {
                 <div className="flex-1">
                   <div className="mb-1 flex items-center justify-between">
                     <span className="text-lg font-bold text-slate-800">Entreprise / Startup</span>
-                    <span className="text-sm font-semibold text-[#16A34A]">Dès 25 000 FCFA →</span>
+                    <span className="text-sm font-semibold text-[#16A34A]">Dès 50 000 FCFA →</span>
                   </div>
                   <p className="text-sm text-slate-500">
                     Exposez votre solution, recrutez des talents et rencontrez investisseurs et partenaires.
@@ -590,49 +621,82 @@ export default function CITRegistration() {
             <h2 className="mb-6 text-center text-xl font-bold text-slate-800">
               Choisissez votre formule
             </h2>
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className={`grid gap-5 ${regType === 'entreprise' ? 'lg:grid-cols-3' : 'sm:grid-cols-2'}`}>
               {tarifList.map((t) => (
                 <button
                   key={t.id}
+                  type="button"
+                  aria-pressed={selectedTarifId === t.id}
                   onClick={() => setSelectedTarifId(t.id)}
-                  className={`group relative rounded-2xl border-2 p-5 text-left transition hover:shadow-lg ${
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-white text-left transition duration-200 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-offset-2 ${
                     selectedTarifId === t.id
-                      ? 'shadow-lg'
-                      : 'border-slate-200 bg-white'
+                      ? 'shadow-lg ring-2 ring-offset-2'
+                      : 'border-slate-200 shadow-sm hover:border-slate-300'
                   }`}
-                  style={selectedTarifId === t.id ? { borderColor: t.color, background: t.color + '08' } : {}}
+                  style={{
+                    borderColor: selectedTarifId === t.id ? t.color : undefined,
+                    ringColor: t.color,
+                  }}
                 >
-                  {/* Pastille couleur top */}
-                  <div
-                    className="mb-4 h-1.5 w-10 rounded-full"
-                    style={{ background: t.color }}
-                  />
-                  <div
-                    className="mb-1 inline-block rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white"
-                    style={{ background: t.color }}
-                  >
-                    {t.badge}
-                  </div>
-                  <div className="mt-2 text-sm font-bold text-slate-800">{t.label}</div>
-                  <div className="mt-1 text-xl font-extrabold" style={{ color: t.color }}>
-                    {formatPrice(t.price)}
-                  </div>
-                  <ul className="mt-3 space-y-1">
-                    {t.perks.map((p) => (
-                      <li key={p} className="flex items-center gap-1.5 text-xs text-slate-500">
-                        <CheckCircle2 size={11} style={{ color: t.color }} />
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                  {selectedTarifId === t.id && (
-                    <div
-                      className="absolute right-3 top-3 flex h-6 w-6 items-center justify-center rounded-full text-white"
-                      style={{ background: t.color }}
-                    >
-                      <CheckCircle2 size={14} />
+                  <div className="h-2 w-full" style={{ background: t.color }} />
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <div className="mb-4 flex items-start justify-between gap-3">
+                      <span
+                        className="inline-flex rounded-full px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider"
+                        style={{ background: `${t.color}14`, color: t.color }}
+                      >
+                        {t.badge}
+                      </span>
+                      {selectedTarifId === t.id && (
+                        <span
+                          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-white"
+                          style={{ background: t.color }}
+                          aria-label="Formule sélectionnée"
+                        >
+                          <CheckCircle2 size={16} />
+                        </span>
+                      )}
                     </div>
-                  )}
+
+                    <h3 className="text-lg font-extrabold leading-snug text-slate-900">{t.label}</h3>
+                    <p className="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-slate-500">{t.summary}</p>
+
+                    <div className="mt-5 border-b border-slate-100 pb-5">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Contribution</p>
+                      <p className="mt-1 text-2xl font-black tracking-tight sm:text-[1.7rem]" style={{ color: t.color }}>
+                        {formatPrice(t.price)}
+                      </p>
+                      {regType === 'entreprise' && (
+                        <p className="mt-1 text-xs text-slate-400">Forfait partenaire selon le package sélectionné</p>
+                      )}
+                    </div>
+
+                    <div className="mt-4 flex-1">
+                      <p className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-700">
+                        Ce que comprend l’offre
+                      </p>
+                      <ul className="space-y-2.5">
+                        {t.perks.map((p) => (
+                          <li key={p} className="flex items-start gap-2 text-sm leading-snug text-slate-600">
+                            <CheckCircle2 size={15} className="mt-0.5 shrink-0" style={{ color: t.color }} />
+                            <span>{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div
+                      className="mt-6 flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold transition"
+                      style={
+                        selectedTarifId === t.id
+                          ? { background: t.color, color: '#fff' }
+                          : { background: `${t.color}10`, color: t.color }
+                      }
+                    >
+                      {selectedTarifId === t.id ? 'Formule sélectionnée' : 'Choisir cette formule'}
+                      <ChevronRight size={16} />
+                    </div>
+                  </div>
                 </button>
               ))}
             </div>
